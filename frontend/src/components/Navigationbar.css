@@ -1,0 +1,139 @@
+/* header  */
+.main-nav{
+    min-height: auto;
+    display: flex;
+    background-color: #22c1c3;
+    justify-content: space-between;
+    /* position: sticky;
+    top: 0; */
+}
+
+/* logo title */
+.logo h1{
+    padding-left: 20px;
+    padding-top: 10px;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: 200;
+}
+
+/* menu links area whole */
+.menu-links{
+    margin-right: 6em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* menu links i.e navigaiton */
+.menu-links ul{
+    list-style-type: none;
+    display: flex;
+}
+
+/* menu links i.e navigaiton individual*/
+.menu-links ul li{
+    padding-top: 15px;
+    cursor: pointer;
+}
+
+/* menu links i.e navigaiton individual link*/
+.menu-links ul li a{
+    text-decoration: none;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 300;
+    padding-left: 50px;
+}
+.menu-links ul li a span{ 
+  display: none;
+  font-size: 18px;
+    color: #ffffff;
+    font-weight: 300;
+    padding-left: 50px;
+}
+
+/* menu links i.e navigaiton individual link hover*/
+.menu-links ul li a:hover{
+    color: black;
+}
+
+.hamburger-menu{ 
+    display: none;
+    background-color: transparent;
+    font-size: 1.2em;
+    border: none;
+}
+/* Sign in and Sig up button */
+/* 
+.sign-button{
+    margin-left: 50px;
+}
+.sign-button button{
+    border: none;
+    background-color: #ffa500;
+    border-radius: 2px;
+    font-size: 18px;
+    font-weight: 300px;
+}
+
+.sign-button button:hover{
+    background-color: #ffa6008f;
+} */
+
+
+@media (max-width: 998px) {
+    .main-nav{
+        justify-content: space-between;
+        align-items: center;
+    }
+    .menu-links{
+        display: none;
+    }
+    .mobile-menu-link ul{
+        display: grid;
+        position: absolute;
+        top: 69px;
+        left: 0;
+        /* // stacks the li tags vertically  */
+        flex-direction: column;
+       /* // makes menu span full height and width */
+        text-decoration: none;
+        list-style-type: none;
+        width: 50%;
+        height: 20rem;
+        background-color: rgba(84, 186, 233, 0.644);
+        transform-origin: top;
+        box-shadow: rgba(50,50,93,0.25) 0px 50px 100px -20px,
+        rgba(0,0,0,0.3) 0px 30px 60px -30px;
+    }
+    .mobile-menu-link li{
+    /* // centers link text and strips off margin */    
+      list-style: none;
+      text-align: left;
+      padding-left: 20px;
+      padding-top: 20px;
+      margin: 0;
+    }
+
+    .mobile-menu-link ul li:hover{
+        background-color: rgba(26, 24, 24, 0.644);;
+    }
+    .mobile-menu-link li a{
+        color: #ffffff;
+        /* // increases the surface area of the anchor tag to span the full width of the menu */
+        width: 100%;
+        padding: 1.5rem 0;
+        text-decoration: none;
+    } 
+    .menu-links ul li a span{ 
+        display: block;
+      }
+    .mobile-menu-link li a:hover{
+        color: #ffa500;
+    }
+    .hamburger-menu{
+        display: block;
+        padding: 20px;
+    }  
+}
