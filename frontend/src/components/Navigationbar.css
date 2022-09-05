@@ -45,7 +45,53 @@
     font-weight: 300;
     padding-left: 50px;
 }
-.menu-links ul li a span{ 
+/* account logo for register and login */
+.account{
+    text-decoration: none;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 300;
+    padding-left: 50px;
+}
+
+.account-button{
+    background-color: rgba(84, 186, 233, 0.644);
+    width:10%;
+    margin:0 30px;
+    min-height:auto;
+    float:right;
+ }
+ .account-button-none{
+    display:none;
+ }
+.account-button .button-text{
+    display: flex;
+    flex-direction:column;
+}
+.account-button .button-text button{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border:none;
+    background:transparent;
+    font-size: 18px;
+    padding:15px 0 15px 0;
+    color:#ffffff;
+    font-weight:300;
+}
+
+.account-button .button-text button:hover{
+   background-color: #ffa500;
+   border: .1px solid white;
+}
+
+.account:hover{
+    display:block;
+}
+
+
+.menu-links ul li span{ 
   display: none;
   font-size: 18px;
     color: #ffffff;

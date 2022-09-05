@@ -4,6 +4,7 @@ import {  FaAngleDown, FaBars, FaCartArrowDown, FaUser } from "react-icons/fa";
 
 const Navigationbar = () => {
   const [showMediaIcon, setShowMediaIcon] = useState(false);
+  const [showButton, setShowButton] = useState(false);
   
   return (
     <div>
@@ -18,7 +19,7 @@ const Navigationbar = () => {
           className={showMediaIcon ? "mobile-menu-link" : "menu-links"}>
             <ul>
               <li>
-                <a href="./" className="dropdown-toggl">Products <FaAngleDown style={{fontSize:15 ,fontWeight:200}} /></a>
+                <a href="./" className="dropdown-toggl">Products <FaAngleDown style={{fontSize:15 , fontWeight: 200}}/></a>
               </li>
               <li>
                 <a href="./">About</a>
@@ -31,11 +32,8 @@ const Navigationbar = () => {
                 <span>Add to Cart</span> <FaCartArrowDown color="#ffa500" size="20px " /> 
                 </a>
               </li>
-              <li>
-                <a href="./" title="Register or Log In">
-                  {" "}
-                 <span> Account </span> <FaUser /> 
-                </a>
+              <li className="account">
+                 <span> Account </span> <FaUser onClick={() => setShowButton(!showButton)}/> 
               </li>
             </ul>
           {/* sign in and sign up button */}
@@ -46,12 +44,17 @@ const Navigationbar = () => {
             <button>Sign Up</button>
           </div> */}
         </div>
-        
           <button className="hamburger-menu"
            onClick={() => setShowMediaIcon(!showMediaIcon)}>
             <FaBars />
           </button>
       </nav>
+      <div className={showButton ? "account-button" : "account-button-none"}>
+        <div className="button-text">
+        <button>Register</button>
+        <button>Log In</button>
+        </div>
+      </div>
     </div>
     
   );
