@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navigationbar.css";
-import { FaBars, FaCartArrowDown, FaUser } from "react-icons/fa";
+import {  FaAngleDown, FaBars, FaCartArrowDown, FaUser } from "react-icons/fa";
 
 const Navigationbar = () => {
   const [showMediaIcon, setShowMediaIcon] = useState(false);
@@ -18,7 +18,7 @@ const Navigationbar = () => {
           className={showMediaIcon ? "mobile-menu-link" : "menu-links"}>
             <ul>
               <li>
-                <a href="./">Products</a>
+                <a href="./" className="dropdown-toggl">Products <FaAngleDown style={{fontSize:15 ,fontWeight:200}} /></a>
               </li>
               <li>
                 <a href="./">About</a>
