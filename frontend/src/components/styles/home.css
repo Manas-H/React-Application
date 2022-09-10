@@ -1,0 +1,70 @@
+
+/* whole body of img and h1, p, button */
+
+.main-body{
+    height:100vh;    
+    background-image: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(34,193,195,1) 100%);
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+}
+/* image of the home page starting */
+.div-img img{
+    height:450px;
+    width:500px;
+}
+
+/* whole div for h1, para and button */
+.div-text{
+    width: 350px;
+    color: #ffffff
+}
+/* heading abover para */
+.div-text h1{
+    font-size: 45px;
+    font-weight: 300;
+    /* color: ; */
+    
+}
+
+/* Para above button */
+.div-text p{
+    font-size: 20px;
+    font-weight: 300;
+    padding-top: 20px;
+}
+
+/* home page starting learn more button */
+.div-text button{
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 8px 20px;
+    font-size: 18px;
+    font-weight: 200;
+    color: #ffff;
+}
+
+/* button hover css */
+.div-text button:hover{
+    background-color: #22c1c3;
+    transition: left 20s ease-out;
+}
+
+@media (max-width: 900px) {
+    .main-body{
+        display:block;  
+        min-height:auto;
+    }
+    .div-img img{
+        display:none;
+    }
+    .div-text{
+        width: 100%;
+        padding:50px;
+    }
+    .div-text h1{
+        font-size:35px;
+        padding:auto;
+    }
+}
