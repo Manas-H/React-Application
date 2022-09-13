@@ -1,7 +1,7 @@
 import React from "react";
 import Navigationbar from "../Navigationbar";
 import "../styles/home.css";
-import images from "../images/mainbody-img(1).jpg";
+import images from "../images/a1.png";
 // import Carousel from '../Carousel'
 // import { CCarousel, CCarouselItem } from '@coreui/react'
 
