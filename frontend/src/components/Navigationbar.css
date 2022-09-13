@@ -28,6 +28,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index:1000;
+    min-width:auto;
 }
 
 /* menu links i.e navigaiton */
@@ -177,6 +179,7 @@
         height: 20rem;
         background-color: rgba(84, 186, 233, 0.644);
         transform-origin: top;
+        transition: .4s ease;
         box-shadow: rgba(50,50,93,0.25) 0px 50px 100px -20px,
         rgba(0,0,0,0.3) 0px 30px 60px -30px;
     }

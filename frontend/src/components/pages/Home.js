@@ -1,24 +1,35 @@
-import React from 'react'
-import Navigationbar from '../Navigationbar'
-import "../styles/home.css"
+import React from "react";
+import Navigationbar from "../Navigationbar";
+import "../styles/home.css";
 import images from "../images/mainbody-img(1).jpg";
- 
+// import Carousel from '../Carousel'
+// import { CCarousel, CCarouselItem } from '@coreui/react'
+
 const Home = () => {
   return (
-    <div> 
-           <Navigationbar />
-        <div className="main-body">
-         <div className='div-img'>
-          <img src={images}  alt="BigCo Inc. logo"/>
-         </div>
-         <div className='div-text'>
-          <h1>We are the Leading Manufacturers in Fiberglass lanters and Services</h1>
-          <p> We are committed to providing <br/> top notch quality Products</p>
-          <button>Learn More</button>
-         </div>
+    <div>
+      {/* <Carousel /> */}
+      <Navigationbar />     
+      <div className="main-body">
+        <div className="div-img">
+          <img src={images} alt="BigCo Inc. logo" />
         </div>
+        <div className="div-text">
+          <h1>
+            We are the Leading Manufacturers in Fiberglass lanters and Services
+          </h1>
+          <p>
+            {" "}
+            We are committed to providing <br /> top notch quality Products
+          </p>
+          <button>Learn More</button>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
+
+
+
