@@ -56,10 +56,10 @@
 @media (max-width: 900px) {
     .main-body{
         display:block;  
-        min-height:auto;
+        height: 200vh;
     }
     .div-img img{
-        display:none;
+        display:block;
     }
     .div-text{
         width: 100%;
