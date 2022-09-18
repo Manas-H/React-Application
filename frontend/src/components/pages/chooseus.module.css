@@ -1,0 +1,35 @@
+.chdiv{
+
+    height: 150vh;
+    width: 100%;
+    padding-top: 20px;
+    background-image:linear-gradient(360deg,rgba(34,193,195,1) 0%,rgba(253,187,45,1) 100%);
+    padding: 300px 0px;
+}
+
+.div2{
+    width: 100%;
+    padding: 20px;
+    opacity: 0.2;
+
+}
+.headdiv{ 
+    z-index: 20;
+    background-image: url("/src/components/images/ad.jpeg");
+    background-size: contain;
+    background-repeat:no-repeat;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 22px;
+    box-shadow: outset 1px 2px;
+    float: left;
+    display: flex;
+}
+
+.head1{
+
+    float: right;
+    display: flex;
+}
+
