@@ -50,7 +50,7 @@
 /* button hover css */
 .div-text button:hover{
     background-color: #22c1c3;
-    transition: left 20s ease-out;
+    
 }
 
 .products{

@@ -28,7 +28,7 @@ const Home = () => {
         </div>
       </div>
       
-      
+      {/* <Products /> */}
       <div className="products">
          <div className="product_header"><h1> Demo Products </h1> </div>
       
