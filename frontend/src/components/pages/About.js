@@ -1,8 +1,10 @@
 import React from 'react'
+import RegisterationModal from '../forms/RegisterationModal';
+
 const About = () => {
   return (
     <div>
-        <h1>About Page</h1> 
+      <RegisterationModal /> 
     </div>
   )
 }

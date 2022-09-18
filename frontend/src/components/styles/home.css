@@ -5,11 +5,11 @@
     
     height:90vh;    
     background-image: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(34,193,195,1) 100%);
-    /* background-color:#000000; */
     display:flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 58px;
+
 }
 /* image of the home page starting */
 .div-img img{
@@ -53,6 +53,25 @@
     transition: left 20s ease-out;
 }
 
+.products{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    margin:3rem;
+}
+.products_cards{
+    display:flex;
+    justify-content:center;
+    margin:60px;
+}
+
+/* .products-cards h1{
+    display:flex;
+    flex-direction:column;
+} */
+.p1{
+    padding-right:60px;
+}
 @media (max-width: 900px) {
     .main-body{
         display:block;  
@@ -60,6 +79,7 @@
     }
     .div-img img{
         display:block;
+        width:100%;
     }
     .div-text{
         width: 100%;

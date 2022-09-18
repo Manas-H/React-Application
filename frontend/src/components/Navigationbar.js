@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import {Link } from 'react-router-dom'
 import "./Navigationbar.css";
 import OutsideClickHandler from "react-outside-click-handler";
-// import onClickOutside from "react-onclickoutside";
+import RegisterationModal from "./forms/RegisterationModal";
 import {
   FaAngleDown,
   FaBars,
@@ -16,18 +16,25 @@ const Navigationbar = () => {
   const [showMediaIcon, setShowMediaIcon] = useState(false);
   const [showButton, setShowButton] = useState(false);
 
+  const [showModal, setShowModal] = useState(false);
+
+  // const openModal = () => {
+  //   setShowModal(true);
+  //   console.log("modal is open");
+  // };
+
   return (
     <div>
       <nav className="main-nav">
         {/* Logo name */}
         <div className="logo">
-       <h1>Purva Fiber Industry</h1>
+          <h1>Purva Fiber Industry</h1>
         </div>
 
         {/* Menu links that is Navigation */}
         <div className={showMediaIcon ? "mobile-menu-link" : "menu-links"}>
           <ul>
-          <li>
+            <li>            
               <NavLink to="/home" className="link">
                 Home
               </NavLink>
@@ -75,18 +82,24 @@ const Navigationbar = () => {
                   }}
                 >
                   <span onClick={() => setShowButton(true)}> Account </span>{" "}
+                  {/* <FaUser onClick={() => setShowModal(true)}/> */}
                   <FaUser
                     title=" Register or Login"
                     onClick={() => setShowButton(true)}
-                    onMouseOver={({ target }) => (target.style.color = "orange")}
+                    onMouseOver={({ target }) =>
+                      (target.style.color = "orange")
+                    }
                     onMouseOut={({ target }) => (target.style.color = "white")}
                   />
                 </OutsideClickHandler>
               </li>
+
               {showButton && (
                 <div className="account-button">
                   <div className="button-text">
-                    <button>Register</button>
+                      <button onClick={() => setShowModal(true)}>
+                      Register
+                    </button>
                     <button>Log In</button>
                   </div>
                 </div>
@@ -108,6 +121,8 @@ const Navigationbar = () => {
           {showMediaIcon ? <FaTimes /> : <FaBars />}
         </button>
       </nav>
+     
+      {showModal ? (<RegisterationModal closeModal={setShowModal} />): null}
     </div>
   );
 };

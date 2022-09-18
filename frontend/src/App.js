@@ -4,10 +4,13 @@ import { Routes, Route } from "react-router-dom";
 import About from "./components/pages/About";
 import Contact from "./components/pages/Contact"
 import Home from "./components/pages/Home"
+// import RegisterationModal from "./components/forms/RegisterationModal";
+// import From from './components/'
 
 function App() {
   return (
     <div>
+      {/* <RegisterationModal /> */}
       {/* <Navigationbar /> */}
       <Routes>
         <Route exact path="/" element={<Home/>}></Route>
@@ -15,6 +18,7 @@ function App() {
         <Route path="/about" element={<About/>}></Route>
         <Route path="/contact" element={<Contact/>}></Route>
       </Routes>
+
     </div>
   );
 }

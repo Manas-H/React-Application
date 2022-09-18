@@ -2,10 +2,12 @@ import React from "react";
 import Navigationbar from "../Navigationbar";
 import "../styles/home.css";
 import images from "../images/a1.png";
+import Products from "../products/Products";
 // import Carousel from '../Carousel'
 // import { CCarousel, CCarouselItem } from '@coreui/react'
 
 const Home = () => {
+
   return (
     <div>
       {/* <Carousel /> */}
@@ -25,6 +27,19 @@ const Home = () => {
           <button>Learn More</button>
         </div>
       </div>
+      
+      
+      <div className="products">
+         <div className="product_header"><h1> Demo Products </h1> </div>
+      
+      <div className="products_cards">
+      <div className="p1"><Products /></div>
+      <div className="p1"><Products /></div>
+      <Products />
+      </div>
+      </div>
+
+
     </div>
   );
 };
