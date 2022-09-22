@@ -1,8 +1,7 @@
 /* header  */
 .main-nav{
-    
     min-height: auto;
-    display: flex;
+    display:inline-flex;
     background-color: #22c1c3;
     justify-content: space-between;
     /* border-radius: 2px;
@@ -10,6 +9,8 @@
    position: fixed;
    top: 0;
    width: 100%;
+   z-index: 999;
+   pointer-events: auto;
 }
 
 /* logo title */

@@ -1,14 +1,20 @@
 import React from "react";
-import Navigationbar from "../Navigationbar";
 import "../styles/home.css";
+<<<<<<< HEAD
 import images from "../images/a1.png";
 import Products from "../products/Products";
 // import Carousel from '../Carousel'
 // import { CCarousel, CCarouselItem } from '@coreui/react'
+=======
+import Navigationbar from "../Navigationbar";
+import Autop from "./Autoplay";
+import Choose from "./chooseus";
+>>>>>>> e45f544a31c1f98d2117c5f778b031daac8214c0
 
 const Home = () => {
 
   return (
+<<<<<<< HEAD
     <div>
       {/* <Carousel /> */}
       <Navigationbar />     
@@ -40,6 +46,14 @@ const Home = () => {
       </div>
 
 
+=======
+    <div>   
+    <Navigationbar />
+    <div className="main-body">
+      <Autop />
+    </div>
+    <Choose />
+>>>>>>> e45f544a31c1f98d2117c5f778b031daac8214c0
     </div>
   );
 };
