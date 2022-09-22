@@ -3,53 +3,52 @@
     height: 620px;
     width: 100%;
     padding-top: 20px;
-    background-image:linear-gradient(360deg,rgba(34,193,195,1) 0%,rgba(253,187,45,1) 100%);
+    background-color: #1B998B;
     padding: 100px 0px;
 }
 
 .div2{
     width: 100%;
-    padding: 50px 0px;
-    background-color: #fffbe4;
-    height: 150vh;
-
+    padding: 0px 0px;
+    background-color: #FFEEAF;
+    height: 100vh;
     
 
 }
 .headdiv{ 
     height: 600px;
     width: 100%;
-    display: flex;
+    background-image: url("/src/components/images/ad1.png");
+    background-position: bottom;
+    background-size:cover;
+    background-repeat: no-repeat;
 }
 
 .imgc{
-    margin-left: 42px;
-    height: 500px;
-    width: 50%;
+    margin-left: 0px;
+    height: 100%;
+    width: 60%;
     display: flex;
     flex-direction: column;
-    border-radius: 12px 12px;
-    box-shadow:5px 5px 10px #111;
+    border-radius: 1px 2px 2px 1px;
+    box-shadow:2px 2px 2px #111;
+    justify-content: left;
     
 }
 .head1{
 
-    float: right;
-    display: flex;
-    flex-direction: column;
+   justify-content: center;
+    width: auto;
+    color: aliceblue;
+    font-size: 170px;
     text-align: center;
-    margin-left: 200px;
-    margin-top: 10px;
+    align-items: center;
+    padding: 0px 0px;
     text-transform: uppercase;
     font-family: 'Steelfish Rg', 'helvetica neue',
                     helvetica, arial, sans-serif;
     font-weight: 800;
     font-weight: bold;
-    background-image: url("../images/bg.png");
-    background-position:left top;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 

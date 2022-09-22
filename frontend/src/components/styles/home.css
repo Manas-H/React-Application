@@ -3,19 +3,22 @@
 .body1{
     display: flex;
     align-content: center;
-    padding-left: 280px;
+    justify-content: center;
     width:100%;
     position: relative;
     z-index: -2;
     overflow:visible;
+    height: 100%;
+
 }
 .main-body{
     padding-top: 20px;
     height:100vh;    
-    background-image: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(34,193,195,1) 100%);
-    /* background-color:#000000; */
+    /* background-image: linear-gradient(0deg,#90C8AC 0%,#7FB77E 100%);  */
+   background-color: #1B998B;
+
     display:flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     margin-top: 58px;
     z-index: -1;
@@ -44,6 +47,7 @@
     height:450px;
     width:500px;
     margin-right: 100px;
+    width: auto;
 }
 
 /* whole div for h1, para and button */
@@ -76,7 +80,7 @@
     border: 2px solid white;
     padding: 8px 20px;
     font-size: 18px;
-    font-weight: 200;
+    font-weight: 300;
     color: #ffff;
     transition: background-color 1s;
 }
@@ -92,7 +96,8 @@
 
 /* button hover css */
 .div-text button:hover{
-    background-color: #22c1c3;
+    background-color: #FFEEAF;
+    color: #28282B;
 }
 
 @media (max-width: 900px) {

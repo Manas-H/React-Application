@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./Navigationbar.css";
 import OutsideClickHandler from "react-outside-click-handler";
 // import onClickOutside from "react-onclickoutside";
+import Logoimage from "./images/pfi.jpg"; 
 import {
   FaAngleDown,
   FaBars,
@@ -21,6 +22,7 @@ const Navigationbar = () => {
       <nav className="main-nav">
         {/* Logo name */}
         <div className="logo">
+          <img className="logo-img"src={Logoimage} alt="Logo"></img>
        <h1>Purva Fiber Industry</h1>
         </div>
 
@@ -48,12 +50,12 @@ const Navigationbar = () => {
               {/* <NavLink to="/" className="">About</NavLink> */}
             </li>
 
-            <li>
+            {/* <li>
               <NavLink to="/contact" className="link">
                 {" "}
                 Contact us{" "}
               </NavLink>
-            </li>
+            </li> */}
 
             <li title="Cart">
               <NavLink to="/" className="link">
