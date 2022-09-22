@@ -34,17 +34,13 @@ const Navigationbar = () => {
         {/* Menu links that is Navigation */}
         <div className={showMediaIcon ? "mobile-menu-link" : "menu-links"}>
           <ul>
-<<<<<<< HEAD
             <li>            
               <NavLink to="/home" className="link">
-=======
           <li>
               <NavLink to="/" className="link">
->>>>>>> e45f544a31c1f98d2117c5f778b031daac8214c0
                 Home
               </NavLink>
             </li>
-
             <li>
               <NavLink to="/" className="link">
                 Products
