@@ -1,9 +1,11 @@
 import React from 'react'
+import RegisterationModal from "../forms/RegisterationModal";
+import "../forms/registration.css";
 
 const Contact = () => {
   return (
-    <div>
-      <h1>Manas</h1>
+    <div className="register-body">
+      <RegisterationModal />
     </div>
   )
 }

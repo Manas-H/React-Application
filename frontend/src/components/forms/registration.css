@@ -1,0 +1,126 @@
+.register-body{
+    display:flex;
+    width: 100vw;
+    height:100vh;
+    justify-content:center;
+    align-items: center;
+    background: #f0f2f5;
+    font-family: Arial, sans-serif;
+
+}
+.register , .login{
+    width: 400px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgb(0 0 0/ 10%), 0 8px, 16px rgb(0 0 0 / 10%);
+    border-radius: 8px;
+    padding: 1rem;
+    align-items: center;
+    text-align:center
+}
+
+.register > input{
+    border-radius: 8px;
+    border: 2px solid #dddfe2;
+    outline: none;
+    color: #1d2129;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.75rem;
+    width: 92%;
+    font-size: 1rem;
+}
+.data > input{
+    border-radius: 8px;
+    border: 2px solid #dddfe2;
+    outline: none;
+    color: #1d2129;
+    margin: 0.3em 1em;
+    padding: 0.2rem 0.75rem;
+    width: 92%;
+    font-size: 1rem;
+}
+.data > label{
+    display: flex;
+    margin: 0 1.3rem;
+    
+}
+
+.register > .button , .login  > .button{
+    background: #1877f2;
+    border-radius: 8px;
+    border: 1px solid #1877f2;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    margin: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.25rem;
+}
+.data{
+    display:flex;
+    flex-direction:column;
+}
+
+/* 
+.outer-div{
+    display:flex;
+    justify-content:center;  
+}
+.inner-div{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    border:0.1px solid #000000;
+    background-color:white;
+    border-radius: 40px;
+    padding:20px 40px;
+    width:fit-content;
+}
+.full-name-div{
+    display: flex;
+    flex-direction:column;
+}
+
+
+.a-form-label{
+    font-size:15px;
+    font-weight:300;
+    padding:5px;
+}
+.a-row{
+    padding:8px;
+}
+.a-input-text{
+    width: 100%;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.a-spacing-micro{
+    width: 80%;
+    padding-left:2px;
+}
+
+.button{
+    border:0.67px solidblack;
+    border-radius:10px;
+    width:100%;
+    padding:8px;
+    margin-top:20px;
+    background:#f0c14b;
+    font-size:18px;   
+}
+
+input{
+    
+    outline: none;
+}
+.error-msg{
+    color:red;
+}
+input:invalid:not(:placeholder-shown){
+    border: 2px solid red;
+}
+
+input:valid:not(:placeholder-shown){
+    border: 2px solid green;
+}  */
