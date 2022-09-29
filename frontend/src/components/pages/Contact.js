@@ -1,12 +1,11 @@
-import React from 'react'
-import RegisterationModal from "../forms/RegisterationModal";
+import React from 'react';
 import "../forms/registration.css";
 
 const Contact = () => {
   return (
-    <div className="register-body">
-      <RegisterationModal />
-    </div>
+   <div>
+
+   </div>
   )
 }
 

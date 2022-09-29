@@ -12,23 +12,23 @@ const RegisterationModal = () => {
     password: "",
     reEnterPassword: "",
   });
- 
-  const [error, setError] = useState("");
-	const navigate = useNavigate();
 
-	const handleChange = ({ currentTarget: input }) => {
-		setData({ ...data, [input.name]: input.value });
-	};
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
+    try {
       const url = "http://localhost:5000/api/users";
       const { data: res } = await axios.post(url, data);
       navigate("/login");
       console.log(res.message);
-    } catch(error) {
-      if(
+    } catch (error) {
+      if (
         error.response &&
         error.response.status >= 400 &&
         error.response.status <= 500
@@ -61,83 +61,102 @@ const RegisterationModal = () => {
   //   }
   // };
   return (
-  
-      <div className="register">
-          <form onSubmit={handleSubmit}>
-      {console.log("User", data)}
+    <div className="body">
+      <div className="container">
       <h1>Register</h1>
-     <div className="data">
-      <label>Full Name</label>
-      <input
-        type="text"
-        value={data.name}
-        name="name"
-        placeholder="Enter your Full Name"
-        onChange={handleChange}
-        // {...register("name", { required: true, maxLength: 10 })}
-      />
-       {/* {errors.name && (
-              <p className="error-msg">Please check the First Name</p>
-       )}; */}
-     </div>
-     <div className="data">
-     <label>E-mail</label>
-      <input
-        type="text"
-        value={data.email}
-        name="email"
-        placeholder="Enter Your Email"
-        onChange={handleChange}
-        required
-      />
-      </div>
-       <div className="data">
-       <label>Mobile Number</label>
-      <input
-        type="tel"
-        value={data.tel}
-        name="tel"
-        placeholder="Enter your Mobile Number"
-        onChange={handleChange}
-        required
-      />
-      </div>
-       <div className="data">
-       <label>Password</label>
-      <input
-        type="password"
-        value={data.password}
-        name="password"
-        placeholder="Enter password"
-        onChange={handleChange}
-        required
-      />
-      </div>
-       <div className="data">
-       <label>Re-Enter Password</label>
-      <input
-        type="password"
-        value={data.reEnterPassword}
-        name="reEnterPassword"
-        placeholder="Enter password"
-        onChange={handleChange}
-        required
-      />
-      </div>
-      {error && <div className="">{error}</div>}
-      <button type="submit" className="button">
-							Sing Up
-						</button>
-      <div>or</div>
-      {/* <div className="button" onClick={() => history.push("/login")}>
+        <form method="register" onSubmit={handleSubmit}>
+          {console.log("User", data)}
+          
+          <div className ="user__details">
+            <div className ="input__box">
+              <span className ="details">Full Name</span>
+            </div>
+            <input
+              type="text"
+              value={data.name}
+              name="name"
+              placeholder="Enter your Full Name"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="row">
+            <div className ="user__details">
+              <div className ="input__box">
+                <span className ="details">Email</span>
+              </div>
+              <input
+                type="text"
+                value={data.email}
+                name="email"
+                placeholder="Enter Your Email"
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className ="user__details">
+              <div className ="input__box">
+                <span className ="details">Mobile Number</span>
+              </div>
+              <input
+                type="tel"
+                value={data.tel}
+                name="tel"
+                placeholder="Enter Phone Number"
+                // pattern="7/8/9-[0-9]"
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          <div className ="user__details">
+            <div className ="input__box">
+              <span className ="details">Password</span>
+            </div>
+            <input
+              type="password"
+              value={data.password}
+              name="password"
+              placeholder="Enter password"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className ="user__details">
+            <div className ="input__box">
+              <span className ="details">Confirm Password</span>
+            </div>
+            <input
+              type="password"
+              value={data.reEnterPassword}
+              name="reEnterPassword"
+              placeholder="Enter password"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          {error && <div className="">{error}</div>}
+          <div className="button">
+            <button>Register</button>
+          </div>
+          <div>
+          <span>Already have Account?</span>
+          <Link to="/login">
+            <span className="" type="button">
+              Sign in
+            </span>
+          </Link>
+          </div>
+
+          {/* <div className="button" onClick={() => history.push("/login")}>
         Login
       </div> */}
-      <Link to="/login">
-        <button type="button">Sign in</button>
-      </Link>
-          </form>
-    </div>
 
+        </form>
+      </div>
+    </div>
   );
 };
 
