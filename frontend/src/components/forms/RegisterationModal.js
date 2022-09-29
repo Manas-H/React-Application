@@ -63,13 +63,27 @@ const RegisterationModal = () => {
   return (
     <div className="body">
       <div className="container">
-      <h1>Register</h1>
+        <div className="title">
+
+   <div className="register link_path">
+          <Link to="/register" className="link">
+            Register
+          </Link>
+          </div>
+          <div id="btn"></div>
+          <div className="login link_path">
+          
+          <Link to="/login" className="link">
+            Login
+          </Link>
+          </div>       
+        </div>
         <form method="register" onSubmit={handleSubmit}>
           {console.log("User", data)}
-          
-          <div className ="user__details">
-            <div className ="input__box">
-              <span className ="details">Full Name</span>
+
+          <div className="user__details details_pt">
+            <div className="input__box">
+              <span className="details">Full Name</span>
             </div>
             <input
               type="text"
@@ -81,9 +95,9 @@ const RegisterationModal = () => {
           </div>
 
           <div className="row">
-            <div className ="user__details">
-              <div className ="input__box">
-                <span className ="details">Email</span>
+            <div className="user__details">
+              <div className="input__box">
+                <span className="details">Email</span>
               </div>
               <input
                 type="text"
@@ -95,9 +109,9 @@ const RegisterationModal = () => {
               />
             </div>
 
-            <div className ="user__details">
-              <div className ="input__box">
-                <span className ="details">Mobile Number</span>
+            <div className="user__details">
+              <div className="input__box">
+                <span className="details">Mobile Number</span>
               </div>
               <input
                 type="tel"
@@ -111,9 +125,9 @@ const RegisterationModal = () => {
             </div>
           </div>
 
-          <div className ="user__details">
-            <div className ="input__box">
-              <span className ="details">Password</span>
+          <div className="user__details">
+            <div className="input__box">
+              <span className="details">Password</span>
             </div>
             <input
               type="password"
@@ -124,9 +138,9 @@ const RegisterationModal = () => {
               required
             />
           </div>
-          <div className ="user__details">
-            <div className ="input__box">
-              <span className ="details">Confirm Password</span>
+          <div className="user__details">
+            <div className="input__box">
+              <span className="details">Confirm Password</span>
             </div>
             <input
               type="password"
@@ -142,18 +156,17 @@ const RegisterationModal = () => {
             <button>Register</button>
           </div>
           <div>
-          <span>Already have Account?</span>
-          <Link to="/login">
-            <span className="" type="button">
-              Sign in
-            </span>
-          </Link>
+            {/* <span>Already have Account?</span>
+            <Link to="/login">
+              <span className="" type="button">
+                Sign in
+              </span>
+            </Link> */}
           </div>
 
           {/* <div className="button" onClick={() => history.push("/login")}>
         Login
       </div> */}
-
         </form>
       </div>
     </div>
