@@ -43,22 +43,11 @@
   cursor: pointer;
   position: relative;
  }
- #btn{
-  top:0;
-  left:0;
-  position:absolute;
-  width:170px;
-  height:100%;
-  /* background: linear-gradient(to right, #ff105f, #ffad06); */
-  background: linear-gradient(135deg, blue, purple);
-  border-radius: 30px;
-  transition: 5s;
- }
-
+ 
  /* login and register title link setting */
   .title .link{
     text-decoration: none;
-    color:#fff;
+    color:#000;
   }
 
 /*   
@@ -102,9 +91,14 @@ form .user__details .input__box {
     border-bottom-width: 2px;
     transition: all 0.3s ease;
   }
-  /* .register , .login{
-    width:150px;
-  }  */
+  .register:hover , .login:hover{
+  /* background: linear-gradient(to right, #ff105f, #ffad06); */
+  background: linear-gradient(135deg, blue, purple);
+  border-radius: 30px;
+  width:200px;
+  text-align:center;
+  transition:0.5s;
+  } 
 
   .user__details .input__box input:focus,
 .user__details .input__box input:valid {
@@ -137,3 +131,13 @@ form .user__details .input__box {
     padding-bottom:10px;
   }
   
+
+
+  @media (max-width: 362px) {
+    .container .title {
+      width:fit-content;
+    }
+    .register:hover, .login:hover{
+      width: fit-content;
+    }
+  }

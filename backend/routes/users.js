@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User, validate } = require("../models/User");
 const bcrypt = require("bcrypt");
 
+
 router.post("/", async (req, res) => {
 	try {
 		const { error } = validate(req.body);
@@ -18,11 +19,8 @@ router.post("/", async (req, res) => {
 		const hashPassword = await bcrypt.hash(req.body.password && req.body.reEnterPassword , salt);
 		await new User({ ...req.body, password: hashPassword, reEnterPassword: hashPassword }).save();
 
-        // const salt1 = await bcrypt.genSalt(Number(process.env.SALT));
-		// const hashPassword1 = await bcrypt.hash(req.body.reEnterPassword, salt1);
-		// await new User({ ...req.body, reEnterPassword: hashPassword1 }).save();
-
 		res.status(201).send({ message: "User created successfully" });
+		console.log(user)
 	} catch (error) {
         console.log(error);
 		res.status(500).send({ message: "Something Went wrong..." });

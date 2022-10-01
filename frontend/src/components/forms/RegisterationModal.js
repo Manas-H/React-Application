@@ -70,7 +70,7 @@ const RegisterationModal = () => {
             Register
           </Link>
           </div>
-          <div id="btn"></div>
+          
           <div className="login link_path">
           
           <Link to="/login" className="link">

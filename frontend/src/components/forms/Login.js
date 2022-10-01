@@ -79,7 +79,6 @@ const Login = () => {
   return (
     <div className="body">
       <div className="container">
-        <div id="btn"></div>
         <div className="title">
           <div className="register link_path">
             <Link to="/register" className="link">
