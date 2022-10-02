@@ -11,12 +11,16 @@ import {
   FaUser,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navigationbar = () => {
   const [showMediaIcon, setShowMediaIcon] = useState(false);
   const [showButton, setShowButton] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
+  
+  const quantity = useSelector(state => state.cart.quantity)
+  console.log(quantity);
 
   // const openModal = () => {
   //   setShowModal(true);
@@ -62,14 +66,19 @@ const Navigationbar = () => {
             </NavLink>
           </li>
 
-          <li title="Cart">
+          <li title="Cart" className="cart">
             <NavLink to="/" className="link">
               <span>Add to Cart</span>{" "}
+              <div>
               <FaCartArrowDown
                 onMouseOver={({ target }) => (target.style.color = "orange")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 size="20px "
               />
+              <sup className="badge">{ quantity }</sup>
+              </div>
+              
+              
             </NavLink>
           </li>
 

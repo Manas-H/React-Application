@@ -94,19 +94,6 @@ const Login = () => {
         <form method="register" onSubmit={handleSubmit}>
           {console.log("User", data)}
 
-          <div className="user__details details_pt">
-            <div className="input__box">
-              <span className="details">Full Name</span>
-            </div>
-            <input
-              type="text"
-              value={data.name}
-              name="name"
-              placeholder="Enter your Full Name"
-              onChange={handleChange}
-            />
-          </div>
-
           <div className="row">
             <div className="user__details">
               <div className="input__box">
@@ -121,6 +108,19 @@ const Login = () => {
                 required
               />
             </div>
+
+            <div className="user__details details_pt">
+            <div className="input__box">
+              <span className="details">Password</span>
+            </div>
+            <input
+              type="password"
+              value={data.name}
+              name="password"
+              placeholder="Enter your Password"
+              onChange={handleChange}
+            />
+          </div>
 
             {error && <div className="error_msg">{error}</div>}
             <div className="button">

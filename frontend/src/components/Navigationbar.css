@@ -67,7 +67,20 @@
       font-weight: 300;
       padding-left: 50px;
   }
-  
+  .cart{
+    display: flex;
+  }
+.badge{
+    padding: 0 3px;
+    margin-bottom:10px;
+    background-color: orange;
+    color:white;
+    font-size:1rem;
+    border-radius:5px;
+    position:relative;
+    
+}
+
 /* account logo for register and login */
 .account{
     text-decoration: none;
@@ -140,23 +153,6 @@
     font-size: 1.2em;
     border: none;
 }
-/* Sign in and Sig up button */
-/* 
-.sign-button{
-    margin-left: 50px;
-}
-.sign-button button{
-    border: none;
-    background-color: #ffa500;
-    border-radius: 2px;
-    font-size: 18px;
-    font-weight: 300px;
-}
-
-.sign-button button:hover{
-    background-color: #ffa6008f;
-} */
-
 
 @media (max-width: 998px) {
     .main-nav{

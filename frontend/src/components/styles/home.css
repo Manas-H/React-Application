@@ -100,10 +100,9 @@
     align-items: center;
     margin:3rem;
 }
-.products_cards{
+.products-cards{
     display:flex;
-    justify-content:center;
-    margin:60px;
+    
 }
 
 /* .products-cards h1{

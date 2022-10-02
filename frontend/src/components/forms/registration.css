@@ -131,7 +131,9 @@ form .user__details .input__box {
     padding-bottom:10px;
   }
   
-
+  .error_msg{
+    color:red;
+  }
 
   @media (max-width: 362px) {
     .container .title {
