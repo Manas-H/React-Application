@@ -67,7 +67,7 @@ const Navigationbar = () => {
           </li>
 
           <li title="Cart" className="cart">
-            <NavLink to="/" className="link">
+            <NavLink to="/cart" className="link">
               <span>Add to Cart</span>{" "}
               <div>
               <FaCartArrowDown
