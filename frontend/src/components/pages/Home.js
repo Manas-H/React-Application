@@ -5,7 +5,7 @@ import Autop from "./Autoplay";
 import Choose from "./chooseus";
 import Categories from "../products/Categories"
 
-export const Home = () => {
+const Home = () => {
   return (
     <div>
       <Navigationbar />
