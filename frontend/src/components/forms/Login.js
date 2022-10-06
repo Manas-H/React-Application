@@ -45,7 +45,7 @@
 // }
 
 // export default Login
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./registration.css";
@@ -64,6 +64,7 @@ const Login = () => {
       const url = "http://localhost:5000/api/auth";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.data);
+
       window.location = "/";
     } catch (error) {
       if (
@@ -75,6 +76,10 @@ const Login = () => {
       }
     }
   };
+
+  useEffect(() => {
+
+  })
 
   return (
     <div className="body">

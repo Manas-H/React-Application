@@ -152,7 +152,7 @@
     border: none;
 }
 .main-nav{
-    height: auto;
+    height: 68px;
     overflow: none;
     display:inline-flex;
     background-color:#28282B;
@@ -189,9 +189,6 @@
 .menu-links{
     margin-right: 6em;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
     z-index:1000;
     min-width:auto;
 }
@@ -204,9 +201,7 @@
 
 /* menu links i.e navigaiton individual*/
 .menu-links ul li{
-    padding-top: 15px;
-    align-items: center;
-    justify-content: center;
+    padding-top: 25px;
     cursor: pointer;
 }
 
@@ -300,6 +295,9 @@
     font-weight:300;
 }
 
+.acc-button{
+    text-decoration: none;
+}
 .account-button .button-text button:hover{
    background-color: #ffa500;
    border: .1px solid white;

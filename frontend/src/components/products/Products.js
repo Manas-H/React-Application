@@ -16,7 +16,7 @@ const Products = ({ item }) => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await publicRequest.get("/products/find/" + id);
+        const res = await publicRequest.get("/product/" + id);
         setProduct(res.data);
       } catch {}
     };
@@ -32,7 +32,7 @@ const Products = ({ item }) => {
   };
 
   const handleClick = () => {
-    dispatch(addProduct({ product, quantity }));
+    dispatch(addProduct({ ...product, quantity }));
   };
   return (
     <div className="card">
