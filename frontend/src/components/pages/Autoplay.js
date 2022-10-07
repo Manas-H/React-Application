@@ -36,7 +36,7 @@ function createSlide() {
 function createSlide2() {
     return (
       <SwiperSlide>
-        <div className="body1">
+        <div className="body1 body2">
         <div className="div-img">
           <img className="img1" src={images2} alt="Fiberglass office" />
         </div>
@@ -73,6 +73,13 @@ const Autop = () => {
       autoplay={{delay: 2500, disableOnInteraction:false,
         pauseOnMouseEnter: true,  }}
       //pagination={{ clickable: true }}
+      // breakpoints={{
+      //   900:{
+      //     slidesPerView:0,
+      //     autoplay:fals
+
+      //   }
+      // }}
     >
       {createSlide() }
       {createSlide2()}

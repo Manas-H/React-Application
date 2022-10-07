@@ -65,7 +65,8 @@
     background-image: url("/src/components/images/comb.png");
     background-size:cover;
     background-position:bottom center;
-    animation: moveIt 200s linear infinite;;
+    background-attachment: fixed;
+    animation: moveIt 200s linear infinite;
     position: absolute;
     overflow: hidden;
 

@@ -1,0 +1,72 @@
+.form{
+    position: absolute;
+    left: 354px;
+}
+.outer-div{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    margin: 50px;
+    
+}
+.inner-div{
+    border:0.1px solid #000000;
+    background-color:white;
+    border-radius: 40px;
+    min-height:60vh;
+    padding:20px 40px;
+}
+.inner-div span{
+    display:flex;
+    justify-content:flex-end;
+    font-size:15px;
+    padding:0;
+}
+.form-info{
+    margin-top:20px;
+}
+
+.form-info h1{
+  text-align: center;
+}
+
+.a-form-label{
+    font-size:20px;
+    font-weight:300;
+    padding:5px;
+}
+.a-row{
+    padding:8px;
+}
+.a-input-text{
+    width: 100%;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+/* .a-spacing-micro{
+    width: 80%;
+    padding-left:2px;
+} */
+
+.create-acc-btn{
+    border:0.67px solidblack;
+    border-radius:10px;
+    width:100%;
+    padding:8px;
+    margin-top:20px;
+    background:#f0c14b;
+    font-size:18px;   
+}
+
+input{
+    padding:1rem;
+    outline: none;
+}
+.a-row input:invalid:not(:placeholder-shown){
+    border: 2px solid red;
+}
+
+.a-row input:valid:not(:placeholder-shown){
+    border: 2px solid green;
+}

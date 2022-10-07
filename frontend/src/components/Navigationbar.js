@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-// import {Link } from 'react-router-dom'
+import {Link } from 'react-router-dom'
 import "./Navigationbar.css";
 import OutsideClickHandler from "react-outside-click-handler";
 // import onClickOutside from "react-onclickoutside";
-import Logoimage from "./images/pfi.jpg"; 
+import Logoimage from "./images/pfi.jpg";
+import Rect from "./images/idk3.png";
+import Bowl from "./images/idk4.png";
+import Vert from "./images/idk5.png";
+import Round from "./images/idk6.png";
+import All from "./images/idk7.png";
 import {
   FaAngleDown,
+  FaAngleRight,
   FaBars,
   FaCartArrowDown,
   FaTimes,
@@ -16,30 +22,40 @@ import { NavLink } from "react-router-dom";
 const Navigationbar = () => {
   const [showMediaIcon, setShowMediaIcon] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [showProducts, setShowProducts] = useState(false);
+
+  const handleClick = (Event) => {
+    // toggle state
+    setShowProducts((current) => !current);
+  };
 
   return (
-    <div>
+    <div className="navigation">
       <nav className="main-nav">
         {/* Logo name */}
         <div className="logo">
-          <img className="logo-img"src={Logoimage} alt="Logo"></img>
-       <h1>Purva Fiber Industry</h1>
+          <img className="logo-img" src={Logoimage} alt="Logo"></img>
+          <h1>Purva Fiber Industry</h1>
         </div>
 
         {/* Menu links that is Navigation */}
         <div className={showMediaIcon ? "mobile-menu-link" : "menu-links"}>
           <ul>
-          <li>
+            <li>
               <NavLink to="/" className="link">
                 Home
               </NavLink>
             </li>
 
             <li>
-              <NavLink to="/" className="link">
-                Products
-                <FaAngleDown style={{ fontSize: 15, fontWeight: 200 }} />
-              </NavLink>
+                <button
+                  className={showProducts ? "bg-sal" : "btn-hov"}
+                  onClick={handleClick}
+                >
+                   <p className="link">Products
+                  <FaAngleDown style={{ fontSize: 15, fontWeight: 200 }} /></p>
+                </button>
+                {/* <FaAngleDown style={{ fontSize: 15, fontWeight: 200 }} /> */}
             </li>
 
             <li>
@@ -80,7 +96,9 @@ const Navigationbar = () => {
                   <FaUser
                     title=" Register or Login"
                     onClick={() => setShowButton(true)}
-                    onMouseOver={({ target }) => (target.style.color = "orange")}
+                    onMouseOver={({ target }) =>
+                      (target.style.color = "orange")
+                    }
                     onMouseOut={({ target }) => (target.style.color = "white")}
                   />
                 </OutsideClickHandler>
@@ -110,6 +128,43 @@ const Navigationbar = () => {
           {showMediaIcon ? <FaTimes /> : <FaBars />}
         </button>
       </nav>
+
+      {showProducts && (
+        <div className="newdiv1">
+        
+          <Link to="/Rectangle" className="Series-1">
+            <img className="Serie-img" src={Rect} alt="Rectangle"></img>
+            <h3 className="serie-des">The Rectangle Series</h3>
+            </Link>
+
+          <Link to="/Round" className="Series-2">
+            <img className="Serie-img" src={Round} alt="Rectangle"></img>
+            <h3 className="serie-des">The Round Series</h3>
+            </Link>
+
+          <Link to="/Vertical" className="Series-3">
+            <img className="Serie-img" src={Vert} alt="Rectangle"></img>
+            <h3 className="serie-des">The Vertical Series</h3>
+            </Link>
+         
+          <Link to="/Bowl" className="Series-4">
+            <img className="Serie-img" src={Bowl} alt="Rectangle"></img>
+            <h3 className="serie-des">The Bowl Series</h3>
+            </Link>
+        
+          
+          <Link to="/allProducts" className="Series-5">
+            <img className="Serie-img" src={All} alt="Rectangle"></img>
+            <h3 className="serie-des">View All Products</h3>
+            </Link>
+         
+  
+          <Link to="/Customize" className="DIY">
+            {/* <img className="Serie-img" src={Rect} alt="Rectangle"></img> */}
+            <h3 className="serie-desc">Quote<br/>Your Design</h3> <FaAngleRight style={{fontSize: 50, fontWeight: 200,}} />
+            </Link>
+        </div>
+      )}
     </div>
   );
 };
