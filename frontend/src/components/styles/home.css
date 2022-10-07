@@ -141,4 +141,14 @@
 /* .swiper-autop{
     width: 100%;
 }  */
+    .body1{
+        display: flex;
+        flex-direction: column;
+    }  
+    .body2{
+        display: none;
+    }
+/* .swiper-autop{
+    width: 100%;
+}  */
 }
