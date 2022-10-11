@@ -8,25 +8,20 @@
     flex-direction:column;
     justify-content:space-between;
 }
-
 .product > img{
     height: 170px;
     border-radius: 8px;
 }
-
 .product_info > p{
   margin-bottom:8px;
 }
-
 .info_price {
     font-weight: bold;
 }
-
 .info_name{
     font-size:1rem;
    overflow:hidden;
 }
-
 .info_description{
     font-size:0.8rem;
 } */

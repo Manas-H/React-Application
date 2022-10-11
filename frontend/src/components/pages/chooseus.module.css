@@ -66,7 +66,7 @@
     background-size:cover;
     background-position:bottom center;
     background-attachment: fixed;
-    animation: moveIt 200s linear infinite;;
+    animation: moveIt 200s linear infinite;
     position: absolute;
     overflow: hidden;
 

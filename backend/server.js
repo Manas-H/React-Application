@@ -9,6 +9,7 @@ const authRoutes = require("./routes/auth");
 const cartRoutes = require("./routes/cart");
 const orderRoutes = require("./routes/order");
 const Serie_Route = require("./routes/series");
+const Product_Route = require("./routes/Productpg");
 const productRoutes = require("./routes/product");
 
 // database connection
@@ -25,6 +26,7 @@ app.use("/api/cart", cartRoutes);
 app.use("/api/order", orderRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/Series", Serie_Route);
+app.use("/api/Product", Product_Route);
 
 const port = process.env.PORT || 5000;
 app.listen(port, console.log(`Listening on port ${port}...`));
