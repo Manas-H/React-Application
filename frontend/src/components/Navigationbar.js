@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navigationbar.css";
 import OutsideClickHandler from "react-outside-click-handler";
+import Profile from "./pages/profile/Profile"
 // import onClickOutside from "react-onclickoutside";
 import Logoimage from "./images/pfi.jpg";
 import Rect from "./images/idk3.png";
@@ -23,6 +24,8 @@ import { useSelector } from "react-redux";
 // import Cart from "./products/Cart";
 
 const Navigationbar = () => {
+  const auth = localStorage.getItem("token");
+  // const navigate = useNavigate();
   const [showMediaIcon, setShowMediaIcon] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [showProducts, setShowProducts] = useState(false);
@@ -33,7 +36,7 @@ const Navigationbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
   console.log(quantity);
 
-  const handleClick = (Event) => {
+  const handleClick = () => {
     // toggle state
     setShowProducts((current) => !current);
   };
@@ -51,6 +54,7 @@ const Navigationbar = () => {
   //   setShowModal(true);
   //   console.log("modal is open");
   // };
+
 
   return (
     <div className="navigation">
@@ -98,56 +102,109 @@ const Navigationbar = () => {
               </NavLink>
             </li> */}
 
-            <li title="Cart" className="cart">
-              <NavLink to="/cart" className="link">
-                <span>Add to Cart</span>{" "}
-                <div>
-                  <FaCartArrowDown
-                    onMouseOver={({ target }) =>
-                      (target.style.color = "orange")
-                    }
-                    onMouseOut={({ target }) => (target.style.color = "white")}
-                    size="20px "
-                    // onClick={handleOpen}
-                  />
-                  <sup className="badge">{quantity}</sup>
-                </div>
-                {/* <Cart onClose={handleClose} showCart={showCart} /> */}
-              </NavLink>
-            </li>
+            {auth ? (
+              <li title="Cart" className="cart">
+                <NavLink to="/cart" className="link">
+                  <span>Add to Cart</span>{" "}
+                  <div>
+                    <FaCartArrowDown
+                      onMouseOver={({ target }) =>
+                        (target.style.color = "orange")
+                      }
+                      onMouseOut={({ target }) =>
+                        (target.style.color = "white")
+                      }
+                      size="20px "
+                      // onClick={handleOpen}
+                    />
+                    <sup className="badge">{quantity}</sup>
+                  </div>
+                  {/* <Cart onClose={handleClose} showCart={showCart} /> */}
+                </NavLink>
+              </li>
+            ) : (
+              <li title="Cart" className="cart">
+                <NavLink to="/login" className="link">
+                  <span>Add to Cart</span>{" "}
+                  <div>
+                    <FaCartArrowDown
+                      onMouseOver={({ target }) =>
+                        (target.style.color = "orange")
+                      }
+                      onMouseOut={({ target }) =>
+                        (target.style.color = "white")
+                      }
+                      size="20px "
+                      // onClick={handleOpen}
+                    />
+                    <sup className="badge">{quantity}</sup>
+                  </div>
+                  {/* <Cart onClose={handleClose} showCart={showCart} /> */}
+                </NavLink>
+              </li>
+            )}
 
             {/* this is for account where when click outside then closes */}
-            <div className="li">
-              <li className="account">
-                <OutsideClickHandler
-                  onOutsideClick={() => {
-                    setShowButton(false);
-                  }}
-                >
-                  <span onClick={() => setShowButton(true)}> Account </span>{" "}
-                  <FaUser
-                    title=" Register or Login"
-                    onClick={() => setShowButton(true)}
-                    onMouseOver={({ target }) =>
-                      (target.style.color = "orange")
-                    }
-                    onMouseOut={({ target }) => (target.style.color = "white")}
-                  />
-                </OutsideClickHandler>
-              </li>
-              {showButton && (
-                <div className="account-button">
-                  <div className="button-text">
-                    <NavLink to="/register" className="acc-button">
-                      <button>Register</button>
-                    </NavLink>
-                    <NavLink to="/login" className="acc-button">
-                      <button>Login</button>
-                    </NavLink>
+            {auth ? (
+              <div className="li">
+                <li className="account">
+                  <OutsideClickHandler
+                    onOutsideClick={() => {
+                      setShowButton(false);
+                    }}
+                  >
+                    <span onClick={() => setShowButton(true)}> Account </span>{" "}
+                    <FaUser
+                      title=" profile"
+                      onClick={() => setShowButton(true)}
+                      onMouseOver={({ target }) =>
+                        (target.style.color = "orange")
+                      }
+                      onMouseOut={({ target }) =>
+                        (target.style.color = "white")
+                      }
+                    />
+                  </OutsideClickHandler>
+                </li>
+                {showButton && (
+                 <Profile />
+                )}
+              </div>
+            ) : (
+              <div className="li">
+                <li className="account">
+                  <OutsideClickHandler
+                    onOutsideClick={() => {
+                      setShowButton(false);
+                    }}
+                  >
+                    <span onClick={() => setShowButton(true)}> Account </span>{" "}
+                    <FaUser
+                      title=" Register or Login"
+                      onClick={() => setShowButton(true)}
+                      onMouseOver={({ target }) =>
+                        (target.style.color = "orange")
+                      }
+                      onMouseOut={({ target }) =>
+                        (target.style.color = "white")
+                      }
+                    />
+                  </OutsideClickHandler>
+                </li>
+                {showButton && (
+                  <div className="account-button">
+                    <div className="button-text">
+                      <NavLink to="/register" className="acc-button">
+                        <button>Register</button>
+                      </NavLink>
+                      <NavLink to="/login" className="acc-button">
+                        <button>Login</button>
+                      </NavLink>
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            )}
           </ul>
         </div>
         {/* sign in and sign up button */}

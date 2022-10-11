@@ -3,8 +3,12 @@ import "../styles/home.css";
 import Navigationbar from "../Navigationbar";
 import Autop from "./Autoplay";
 import Choose from "./chooseus";
-import Categories from "../products/Categories"
+import Products from "../products/Products"
+// import Categories from "../products/Categories"
 import Footer from "./Footer"
+
+
+
 
 const Home = () => {
   return (
@@ -14,7 +18,8 @@ const Home = () => {
         <Autop />
       </div>
       <Choose />
-      <Categories />
+      {/* <Categories /> */}
+      <Products className="products-temp" />
       <Footer />
     </div>
     

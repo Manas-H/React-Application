@@ -54,6 +54,7 @@ const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
 
+
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
@@ -63,9 +64,9 @@ const Login = () => {
     try {
       const url = "http://localhost:5000/api/auth";
       const { data: res } = await axios.post(url, data);
-      localStorage.setItem("token", res.data);
-
+      localStorage.setItem("token", JSON.stringify(res.data));
       window.location = "/";
+      alert("You are Logged In")
     } catch (error) {
       if (
         error.response &&

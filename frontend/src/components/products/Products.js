@@ -6,19 +6,25 @@ import { addProduct } from "../redux/cartReducer";
 import { useDispatch } from "react-redux";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 
-const Products = ({ item }) => {
+const Products = ({ product }) => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
-  const [product, setProduct] = useState({});
+  const [products, setProduct] = useState([]);
   const [quantity, setQuantity] = useState(1);
+  // const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // setIsLoading(true)
     const getProduct = async () => {
       try {
-        const res = await publicRequest.get("/product/" + id);
+        const res = await publicRequest.get(`/products/${id}` + id);
         setProduct(res.data);
-      } catch {}
+      } catch(err){
+        setError(err)
+      }
+      // setIsLoading(false);
     };
     getProduct();
   }, [id]);
@@ -32,14 +38,25 @@ const Products = ({ item }) => {
   };
 
   const handleClick = () => {
-    dispatch(addProduct({ ...product, quantity }));
+    dispatch(addProduct({ ...products, quantity }));
   };
+
+  // if (isLoading) {
+  //   return <p>Data is loading...</p>;
+  // }
+
+  if (error || !Array.isArray(products)) {
+    return <p>There was an error loading your data!</p>;
+  }
   return (
-    <div className="card">
-      <img src={item.img} alt="Products" />
-      <h1>{item.title}</h1>
+    <div className="products-temp">
+    {
+       products.map((product) => (
+    <div className="card" key={product.id}>
+      <img src={product.img} alt="Products" />
+      <h1>{product.title}</h1>
       {/* <p class="price">$19.99</p> */}
-      <p>{item.desc}</p>
+      <p>{product.desc}</p>
       <div className="amount_sec">
         {/* <p onClick={() => handleQuantity("dec")}> - </p> */}
         <AiOutlineMinus onClick={() => handleQuantity("dec")} />
@@ -53,6 +70,9 @@ const Products = ({ item }) => {
           Add to Cart
         </button>
       </p>
+    </div>
+     ))
+    } 
     </div>
   );
 };

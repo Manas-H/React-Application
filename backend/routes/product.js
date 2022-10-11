@@ -7,14 +7,28 @@ const {
 
 const router = require("express").Router();
 
-//GET PRODUCT
-router.get("/find", async (req, res) => {
+
+
+router.post("/", async (req, res) => {
+  const newProduct = new Product(req.body);
+
   try {
-    const product = await Product.findById(req.params._id);
-    res.status(200).json(product);
+    const savedProduct = await newProduct.save();
+    res.status(200).json(savedProduct);
   } catch (err) {
     res.status(500).json(err);
-    console.log("Mc error");
+  }
+});
+
+//GET PRODUCT
+router.get("/:id", async (req, res) => {
+  const a = req.params._id;
+  try {
+    const product = await Product.find(a);
+    res.status(200).json(product)
+  } catch (err) {
+    res.status(500).json(err);
+    
   }
 });
 

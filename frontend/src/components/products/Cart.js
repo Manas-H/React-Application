@@ -64,13 +64,13 @@ const Cart = () => {
           <h3>You Bag</h3>
         </div>
         <TopBottom className="info">
-        {cart.products.map((product, i) => (
-          <div className="product" key={i}>
+        {cart.products.map((product) => (
+          <div className="product">
             <div className="product-details">
               <img src={product.img} alt="Products" />
               <div className="details">
-                <p className="product_name"><b>Product</b> {product.title} </p>
-                <p className="product_id">ID: {product.id}</p>
+                <p className="product_name"><span>Product</span> {product.title} </p>
+                <p className="product_id">ID: {product._id}</p>
                 <div className="price_details">
               <div className="product-amount-quan">
                 <p className="product-quan-title">Quantity:</p>
@@ -86,7 +86,8 @@ const Cart = () => {
               </div>
             </div>
 
-          </div>))}
+          </div>
+          ))}
         </TopBottom>
         <TopBottom className="info">
           <div className="product">

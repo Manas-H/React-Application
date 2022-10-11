@@ -110,6 +110,11 @@
     background-color: #FFEEAF;
     color: #28282B;
 }
+.products-temp{
+display: flex;
+padding: 20px;
+justify-content: space-between;
+}
 
 @media (max-width: 990px) {
     .main-body{
