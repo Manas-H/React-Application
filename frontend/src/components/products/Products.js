@@ -37,8 +37,9 @@ const Products = ({ product }) => {
     }
   };
 
-  const handleClick = () => {
-    dispatch(addProduct({ ...products, quantity }));
+  const handleClick = (product) => {
+    
+    dispatch(addProduct(product));
   };
 
   // if (isLoading) {
@@ -46,7 +47,7 @@ const Products = ({ product }) => {
   // }
 
   if (error || !Array.isArray(products)) {
-    return <p>There was an error loading your data!</p>;
+    return <p className="error">There was an error loading your data!</p>;
   }
   return (
     <div className="products-temp">
@@ -66,7 +67,7 @@ const Products = ({ product }) => {
         <AiOutlinePlus onClick={() => handleQuantity("inc")} />
       </div>
       <p>
-        <button className="info_button" onClick={handleClick}>
+        <button className="info_button" onClick={() => handleClick(product)}>
           Add to Cart
         </button>
       </p>

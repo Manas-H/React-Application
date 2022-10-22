@@ -1,0 +1,37 @@
+.about-top{
+    position: relative;
+    top: 70px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.abt-heading{
+    font-size: 39px;
+    font-weight: 400;
+}
+.abt-links ul, .abt-links ul li{
+    display: flex;
+    text-decoration: none;
+    font-size: 35px;
+    padding: 14px 17px;
+}
+
+.abt-main-sec{
+    position: relative;
+    top: 90px;
+}
+
+.abt-bx-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.abt-bx-content .bx{
+    border:2px solid black;
+}
+
+.bx-2, .bx-1, .bx-3, .bx-4{
+    padding: 30px;
+    margin-left: 50px;
+}

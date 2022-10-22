@@ -1,11 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux"; 
+import { useSelector } from "react-redux";
 import "../styles/cart.css";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { AiOutlineDelete, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import styled from "styled-components";
 
 const TopBottom = styled.div`
-  display:block;  
+  display: block;
   font-weight: 600;
   cursor: pointer;
   border: ${(props) => props.type === "filled" && "none"};
@@ -15,8 +15,8 @@ const TopBottom = styled.div`
 `;
 
 const Summary = styled.div`
-  width:80%;
-  margin-left:40px;
+  width: 80%;
+  margin-left: 40px;
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 20px;
@@ -46,13 +46,13 @@ const SummaryItemPrice = styled.span``;
 // `;
 
 const Button = styled.button`
-  width: 50%;
-  margin:10px 25%;
+  min-width: 72%;
+  margin: 25px 17%;
   padding: 10px;
   background-color: black;
   color: white;
-  font-weight: 600;`;
-
+  font-weight: 600;
+`;
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -61,56 +61,63 @@ const Cart = () => {
     <div className="cart-container">
       <div className="wrapper">
         <div className="top">
-          <h3>You Bag</h3>
+          <h3>Cart</h3>
         </div>
         <TopBottom className="info">
-        {cart.products.map((product) => (
-          <div className="product">
-            <div className="product-details">
-              <img src={product.img} alt="Products" />
-              <div className="details">
-                <p className="product_name"><span>Product</span> {product.title} </p>
-                <p className="product_id">ID: {product._id}</p>
-                <div className="price_details">
-              <div className="product-amount-quan">
-                <p className="product-quan-title">Quantity:</p>
-                <AiOutlinePlus />
-                <p className="product-quantity">{product.quantity}</p>
-                <AiOutlineMinus />
-              </div>
-              <div className="product-price">
-                <p>Price:</p>
-                $ {product.price * product.quantity}
+          {cart.products.map((product) => (
+            <div className="product">
+              <div className="product-details">
+                <img src={product.img} alt="Products" />
+                <div className="details">
+                  <p className="product_name">
+                    <span>Product</span> {product.title}{" "}
+                  </p>
+                  <p className="product_id">ID: {product._id}</p>
+                  <div className="price_details">
+                    <div className="product-amount-quan">
+                      <p className="product-quan-title">Quantity:</p>
+                      <AiOutlinePlus />
+                      <p className="product-quantity">{product.quantity}</p>
+                      <AiOutlineMinus />
+                    </div>
+                    <div className="product-price">
+                      <p>Price:</p>$ {product.price * product.quantity}
+                    </div>
+                  </div>
+                </div>
+                <div className="delete-icon">
+                  <AiOutlineDelete />
+                </div>
               </div>
             </div>
-              </div>
-            </div>
-
-          </div>
           ))}
         </TopBottom>
         <TopBottom className="info">
           <div className="product">
             <div className="product-details">
-              <img src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png" alt="Products" />
+              <img
+                src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png"
+                alt="Products"
+              />
               <div className="details">
                 <p className="product_name">Product</p>
                 <p className="product_id">ID:</p>
                 <div className="price_details">
-              <div className="product-amount-quan">
-                <p className="product-quan-title">Quantity:</p>
-                <AiOutlinePlus />
-                <p className="product-quantity"> 122</p>
-                <AiOutlineMinus />
+                  <div className="product-amount-quan">
+                    <p className="product-quan-title">Quantity:</p>
+                    <AiOutlinePlus />
+                    <p className="product-quantity"> 122</p>
+                    <AiOutlineMinus />
+                  </div>
+                  <div className="product-price">
+                    <p>Price:</p>$ 1222
+                  </div>
+                </div>
               </div>
-              <div className="product-price">
-                <p>Price:</p>
-                $ 1222
+              <div className="delete-icon">
+                <AiOutlineDelete />
               </div>
             </div>
-              </div>
-            </div>
-
           </div>
         </TopBottom>
 
@@ -134,7 +141,6 @@ const Cart = () => {
           </SummaryItem>
           <Button>CHECKOUT NOW</Button>
         </Summary>
-
       </div>
     </div>
   );
@@ -243,7 +249,6 @@ const Cart = () => {
 //   font-weight: 200;
 // `;
 
-
 // const Cart = () => {
 
 //   return (
@@ -319,4 +324,4 @@ const Cart = () => {
 //   )
 // }
 
-export default Cart
+export default Cart;

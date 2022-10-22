@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
 	// 	name: newUser.name,
 	// 	email: newUser.email,
 	// 	tel: newUser.tel,
-	//   });
+	  // });
     res.status(200).send({ data:{ token, 
 		_id: user._id,
 		name: user.name,
@@ -34,7 +34,6 @@ router.post("/", async (req, res) => {
 		tel: user.tel},
 		message: "logged in successfully" 
 	});
-
   } catch (error) {
     res.status(500).send({ message: "Internal Server Error" });
   }

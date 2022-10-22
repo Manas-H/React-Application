@@ -1,5 +1,7 @@
 .cart-container{
     margin: 40px 0;
+    background:black;
+    
 }
 .wrapper{
     padding:20px;
@@ -7,8 +9,8 @@
     position:relative;
     float:right;
     min-height: auto;
-    /* background:black;
-    color:white; */
+    background:black;
+    color:white;
 }
 /* title */
 .top h3{
@@ -27,7 +29,8 @@
 }
 /* product details */
 .product-details{
-    display:flex;
+    display: flex;
+    justify-content: space-between;
 }
 /* product image */
 .product-details img{

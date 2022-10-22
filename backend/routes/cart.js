@@ -95,18 +95,22 @@ const {
 
 const router = require("express").Router();
 
-// CREATE
 
-router.post("/", verifyToken, async (req, res) => {
-  const newCart = new Cart(req.body);
 
-  try {
-    const savedCart = await newCart.save();
-    res.status(200).json(savedCart);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+
+// router.post("/addtocart", async (req, res) => {
+// const cart = new Cart ({
+//   userId : req.userId._id,
+//   products : req.body.products
+// })
+
+// cart.save((err, cart) => {
+//   if(err) return res.status(400).json({ err });
+//   if(cart){
+//      return res.status(201).json({ cart })
+//   }
+// })
+// });
 
 // UPDATE 
 router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {

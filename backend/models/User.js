@@ -11,39 +11,12 @@ const userSchema = new mongoose.Schema({
 	reEnterPassword: { type: String, required: true },
 });
 
-userSchema.methods.generateAuthToken = () => {
+userSchema.methods.generateAuthToken = function () {
 	const token = jwt.sign({ _id: this._id }, process.env.JWTPRIVATEKEY, {
-		expiresIn: "3d"
-		},
-		(err, token) => {
-			if(err) return res.json({
-				messages:err
-			})
-			return res.json({
-				message: "Sucesss",
-				token: "Bearer" + token
-			})
-	})
+		expiresIn: "7d",
+	});
 	return token;
-};
-// userSchema.statics.findByToken=function(token,cb){
-//     var user=this;
-
-//     jwt.verify(token, env.JWTPRIVATEKEY, (decode) => {
-//         user.findOne({"_id": decode, "token":token},(err,user) =>{
-//             if(err) return cb(err);
-//             cb(null,user);
-//         })
-//     })
-// };
-
-// userSchema.methods.deleteToken= (token,cb) => {
-//     var user=this;
-//     user.update({$unset : {token:1}},(err,user) =>{
-//         if(err) return cb(err);
-//         cb(null,user);
-//     })
-// }
+};        
 
 const User = mongoose.model("user", userSchema);
 

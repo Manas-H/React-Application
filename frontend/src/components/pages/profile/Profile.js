@@ -98,7 +98,7 @@ const Profile = () => {
             <Icon>
             <AiOutlineLogout />
             </Icon>
-            <button onClick={logout}>Logout</button>
+            <span onClick={logout}>Logout</span>
           </Button>
         </ProfileDetails>
       </Left>

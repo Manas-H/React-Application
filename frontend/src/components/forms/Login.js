@@ -45,7 +45,7 @@
 // }
 
 // export default Login
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./registration.css";
@@ -78,9 +78,6 @@ const Login = () => {
     }
   };
 
-  useEffect(() => {
-
-  })
   return (
     <div className="body">
       <div className="container">
