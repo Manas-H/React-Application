@@ -94,11 +94,11 @@ const Profile = () => {
             </ProfileItem>
             </Link>
           </ProfileDetailsSection>
-          <Button>
+          <Button  onClick={logout}>
             <Icon>
             <AiOutlineLogout />
             </Icon>
-            <span onClick={logout}>Logout</span>
+            <button>Logout</button>
           </Button>
         </ProfileDetails>
       </Left>

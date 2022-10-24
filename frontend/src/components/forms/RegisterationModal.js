@@ -62,6 +62,10 @@ const RegisterationModal = () => {
   // };
   return (
     <div className="body">
+      {/* <div className="heading-nav">
+      <FaArrowLeft />
+      <h2>Home</h2>
+      </div> */}
       <div className="container">
         <div className="title">
 
@@ -155,6 +159,10 @@ const RegisterationModal = () => {
           <div className="button">
             <button>Register</button>
           </div>
+          <div className="right">
+            <span>Do not have Account? - </span>
+            <Link to="/login">login</Link>
+          </div>
           <div>
             {/* <span>Already have Account?</span>
             <Link to="/login">
@@ -167,6 +175,7 @@ const RegisterationModal = () => {
           {/* <div className="button" onClick={() => history.push("/login")}>
         Login
       </div> */}
+
         </form>
       </div>
     </div>

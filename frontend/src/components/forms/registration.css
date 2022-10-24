@@ -9,6 +9,18 @@
   /* background:#000; */
   padding: 10px;
 }
+.heading-nav{
+  display: flex;
+  color: white;
+  align-items: center;
+  position:relative;
+  bottom:43vh;
+}
+.heading-nav h2{
+  padding-left: 5px;
+  font-size: 30px;
+  font-weight: 300;
+}
 
 /* login and register box */
 .container {
@@ -85,7 +97,7 @@ form .user__details .input__box {
     height: 45px;
     width: 100%;
     outline: none;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid gray;
     font-size: 16px;
     border-bottom-width: 2px;
@@ -99,6 +111,9 @@ form .user__details .input__box {
   text-align:center;
   transition:0.5s;
   } 
+  .link:hover{
+    color:white;
+  }
 
   .user__details .input__box input:focus,
 .user__details .input__box input:valid {
@@ -108,7 +123,7 @@ form .user__details .input__box {
 /* submit button */
   .button {
     height: 45px;
-    margin: 25px 0;
+    margin: 20px 0 5px 0;
   }
   
   .button button {
@@ -129,6 +144,7 @@ form .user__details .input__box {
   }
   .right{
     padding-bottom:10px;
+    text-align: center;
   }
   
   .error_msg{

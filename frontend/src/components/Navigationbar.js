@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navigationbar.css";
-import OutsideClickHandler from "react-outside-click-handler";
+// import OutsideClickHandler from "react-outside-click-handler";
 import Profile from "./pages/profile/Profile"
 // import onClickOutside from "react-onclickoutside";
 import Logoimage from "./images/pfi.jpg";
@@ -148,15 +148,16 @@ const Navigationbar = () => {
             {auth ? (
               <div className="li">
                 <li className="account">
-                  <OutsideClickHandler
+                  {/* outside click close the content */}
+                  {/* <OutsideClickHandler
                     onOutsideClick={() => {
                       setShowButton(false);
                     }}
-                  >
+                  > */}
                     <span onClick={() => setShowButton(true)}> Account </span>{" "}
                     <FaUser
                       title=" profile"
-                      onClick={() => setShowButton(true)}
+                      onClick={() => setShowButton(!showButton)}
                       onMouseOver={({ target }) =>
                         (target.style.color = "orange")
                       }
@@ -164,7 +165,7 @@ const Navigationbar = () => {
                         (target.style.color = "white")
                       }
                     />
-                  </OutsideClickHandler>
+                  {/* </OutsideClickHandler> */}
                 </li>
                 {showButton && (
                  <Profile />
@@ -173,15 +174,10 @@ const Navigationbar = () => {
             ) : (
               <div className="li">
                 <li className="account">
-                  <OutsideClickHandler
-                    onOutsideClick={() => {
-                      setShowButton(false);
-                    }}
-                  >
-                    <span onClick={() => setShowButton(true)}> Account </span>{" "}
+                    <span onClick={() => setShowButton(!showButton)}> Account </span>{" "}
                     <FaUser
                       title=" Register or Login"
-                      onClick={() => setShowButton(true)}
+                      onClick={() => setShowButton(!showButton)}
                       onMouseOver={({ target }) =>
                         (target.style.color = "orange")
                       }
@@ -189,7 +185,6 @@ const Navigationbar = () => {
                         (target.style.color = "white")
                       }
                     />
-                  </OutsideClickHandler>
                 </li>
                 {showButton && (
                   <div className="account-button">

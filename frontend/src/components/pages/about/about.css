@@ -1,37 +1,128 @@
 .about-top{
     position: relative;
-    top: 70px;
+    top: 30px;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    align-items: center;
+    padding: 6px 44px;
 }
 .abt-heading{
-    font-size: 39px;
+    font-size: 34px;
     font-weight: 400;
 }
 .abt-links ul, .abt-links ul li{
     display: flex;
     text-decoration: none;
     font-size: 35px;
-    padding: 14px 17px;
+    padding: 20px 10px 10px 17px;
 }
 
 .abt-main-sec{
     position: relative;
-    top: 90px;
+    background: #1B998B;
 }
 
 .abt-bx-content {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 20px;
+    padding-top: 17px;
 }
 
 .abt-bx-content .bx{
     border:2px solid black;
+    border-radius: 15px;
+    background-color: aliceblue;
+    cursor: pointer;
+}
+.abt-bx-content .bx:hover{
+    background-color: white;
+
 }
 
 .bx-2, .bx-1, .bx-3, .bx-4{
-    padding: 30px;
+    padding: 30px 80px;
     margin-left: 50px;
 }
+.abt-click-contents{
+    display: flex;
+    justify-content: space-around;
+    padding: 43px 43px 0px 43px;
+}
+.abt-left{
+    width: 110vh;
+    min-height: 57vh;
+    height: 70vh;
+}
+.abt-right{
+    /* border: 2px solid black; */
+    padding: 8vh 4vh;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    border: 0.1px solid lightgray;
+    background-color: aliceblue;
+    box-shadow: 0 3px 10px rgba(161, 141, 141, 0.2);
+    border-radius: 10px;
+    padding: 50px;
+    position: relative;
+    bottom: 50px;
+}
+.form h2{
+    text-align: center;
+}
+.input-feild{
+    display: flex;
+    flex-direction: column;
+    padding: 4px 0;
+}
+.input-feild label{
+    padding-bottom: 5px;
+}
+.input-feild label{
+    text-align:center;
+}
+.input-feild input, textarea{
+    width: 100%;
+    border: .1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+}
+span{
+    color:red;
+}
+.form button{
+    color: black;
+    border: 0.1px  solid black;
+    border-radius: 7px;
+    background:white;
+    width: 50%;
+    margin: 10px 0 0 50px;
+}
+.form button:hover{
+    background-color: lightslategray;
+}
+
+/* who are we page css */
+.who-are-we{
+    text-align: center;
+    width: 50%;
+}
+
+.content {
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+
+  .active-content {
+    display: block;
+    display: flex;
+    justify-content: center;
+
+  }
