@@ -6,9 +6,15 @@
     z-index: 999;
    pointer-events: auto;
 }
-
+.logo{
+    width: 30%;
+}
+.logotitle{
+    margin:0;
+    text-align: center;
+}
 .newdiv1{
-    height: 24vh;
+    height: 20vh;
     background-color: #f1f1f1;
     width:100%;
     border: 1px solid #1B1212;
@@ -28,13 +34,14 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    margin-top: 0.5%;
      
 }
 
 
 .Serie-img{
-    height: 80px;
-    width: 80px;
+    height: 10vh;
+    width: 5vw;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -47,10 +54,9 @@
 
 .serie-des{
     text-align: center;
-    font-size: 20px;
+    font-size: 1rem;
     color: #1B1212;
     position: relative;
-    padding-top: 12px;
     font-weight: 700;
     text-shadow: 10px;
 }
@@ -63,7 +69,7 @@
     bottom: 0;
     left: 0;
     background-color: 
-  #ffa500;
+    #b8a17e;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
@@ -73,7 +79,8 @@
     transform-origin: bottom left;
   }
 .DIY{
-    height:auto;
+    height:100%;
+    margin-top: 1%;
     width:100%;
     margin-left: 40px;
     display: flex;
@@ -81,10 +88,10 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: #ffa500;
+    color: #b8a17e;
 }
 .serie-desc{
-    font-size: 24px;
+    font-size: 1.3rem;
     align-items: center;
     text-align: center;  
     text-decoration: none;
@@ -122,7 +129,7 @@
 
 
 .Desig:hover{
-   color: #ffa500;
+   color: #b8a17e;
    display: block;
    
 }
@@ -135,6 +142,7 @@
     width: 100%;
     height: 100%;
     
+    
 }
 .btn-hov{
    background-color: transparent;
@@ -143,19 +151,19 @@
 }
 
 .btn-hov:hover{
-    color: #ffa500;
+    color: #b8a17e;
 }
 
 .bg-sal{
     background-color: transparent;
-    color: #ffa500;
+    color: #b8a17e;
     border: none;
 }
 .main-nav{
-    height: auto;
+    height: 11vh;
     overflow: none;
     display:inline-flex;
-    background-color:#28282B;
+    background-color: #414f4f;
     justify-content: space-between;
     /* border-radius: 2px;
   box-shadow: 0px 10px 5px red; */
@@ -169,29 +177,37 @@
 /* logo title */
 .logo h1{
     text-decoration:none;
-    padding-left: 20px;
+    padding-left: 3%;
     padding-top: 14px;
-    font-size: 30px;
+    font-size: 1.8rem;
     color: #ffffff;
-    font-weight: 200;
-    float: right;
+    font-weight: 300;
     justify-content: center;
     align-items: center;
 }
 
+.maint{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    font-family: fantasy;
+    letter-spacing: 5px;
+    word-spacing: 4px;
+}
+
 .logo-img{
-   height: 70px;
-   width: fit-content;  
+   height: 10vh;
+   width: 4.3vw;  
    float: left;
-   margin-left: 1px;
+   padding-right: 2%;
+   margin-top: 0%;
 }
 /* menu links area whole */
 .menu-links{
     margin-right: 6em;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
     z-index:1000;
     min-width:auto;
 }
@@ -204,9 +220,7 @@
 
 /* menu links i.e navigaiton individual*/
 .menu-links ul li{
-    padding-top: 15px;
-    align-items: center;
-    justify-content: center;
+    padding-top: 25px;
     cursor: pointer;
 }
 
@@ -224,7 +238,7 @@
 
 /* menu links i.e navigaiton individual link hover*/
 .menu-links ul li .link:hover{
-    color: #ffa500;
+    color: #b8a17e;
 }
 
 .menu-links ul li span{ 
@@ -234,7 +248,20 @@
       font-weight: 300;
       padding-left: 50px;
   }
-  
+  .cart{
+    display: flex;
+  }
+.badge{
+    padding: 0 3px;
+    margin-bottom:10px;
+    background-color: orange;
+    color:white;
+    font-size:1rem;
+    border-radius:5px;
+    position:relative;
+    
+}
+
 
 .dropdown{
     display: inline-block;
@@ -273,7 +300,7 @@
     display: flex;
     flex-direction:column;
 }
-.account-button .button-text button{
+.account-button .button-text button {
     display:flex;
     align-items: center;
     justify-content: center;
@@ -287,8 +314,11 @@
     font-weight:300;
 }
 
+.acc-button{
+    text-decoration: none;
+}
 .account-button .button-text button:hover{
-   background-color: #ffa500;
+   background-color: #b8a17e;
    border: .1px solid white;
 }
 
@@ -321,23 +351,6 @@
     font-size: 1.2em;
     border: none;
 }
-/* Sign in and Sig up button */
-/* 
-.sign-button{
-    margin-left: 50px;
-}
-.sign-button button{
-    border: none;
-    background-color: #ffa500;
-    border-radius: 2px;
-    font-size: 18px;
-    font-weight: 300px;
-}
-
-.sign-button button:hover{
-    background-color: #ffa6008f;
-} */
-
 
 @media (max-width: 998px) {
     .main-nav{

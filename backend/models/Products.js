@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Products = mongoose.Schema( {
 
     name: { type: String },
-    product_id :{ type: Number},
+    productid :{ type: Number},
     series_id: { type: Number},
     images: [{type: String }],
     description: { type: String },
@@ -11,6 +11,7 @@ const Products = mongoose.Schema( {
     esp: {type: Number},
     mrp: {type: Number},
     discount: {type: Number},
+    drain: { type: Array },
     category: {type: String},},
     { timestamps: true }
 );

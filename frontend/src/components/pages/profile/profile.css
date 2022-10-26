@@ -1,0 +1,16 @@
+.profiles-compo-link{
+    text-decoration:none;
+    color:#fff;
+}
+.profiles-compo-link:hover{
+    color:orange;
+}
+button{
+    background: transparent;
+    color:white;
+    font-weight: 250;
+    border:none;
+}
+/* .profile-close{
+    display:none;
+} */

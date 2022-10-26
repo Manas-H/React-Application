@@ -3,6 +3,7 @@ import "../styles/home.css";
 import Navigationbar from "../Navigationbar";
 import Autop from "./Autoplay";
 // import Choose from "./chooseus";
+// import Products from "../products/Products"
 import Footer from "./Footer";
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
     <div className="main-body">
       <Autop />
     </div>
+    
     <Footer/>
     {/* <Choose /> */}
     </div>
