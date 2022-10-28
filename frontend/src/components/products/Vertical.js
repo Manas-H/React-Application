@@ -13,31 +13,37 @@ import {
 const Vertical= () =>{
   const firstItemRef = useRef(null);
     return (
-   <div>
-    <Navigationbar/>
-    <div className="main-body2">
-      <div className ={classes.header}>
-        <h1 className={classes.title}>THE <br/>Vertical Series</h1>
-        <div className={classes.Imagediv}>
-        <img className={classes.mainimage} src= {rect} alt ="Rectangle"></img>
-        <h3 className={classes.br1}> BROWSE PRODUCTS</h3>
-        <button className={classes.btnfa1} onClick={() => firstItemRef.current.scrollIntoView()}><FaArrowCircleDown style={{fontSize: 80, fontWeight: 200,}} /></button>
-        {/* <img className={classes.mainimg3} src ={newz} alt ="rectangular fiberglass"></img> */}
-        </div>
-        {/* <img className={classes.mainimg} src={(Name.Image1)} alt = "nothing"></img> */}
-        </div>
-        <div className={classes.ent}>
-        <h4 className={classes.desc}> Our Premium Tall planters ideal for your Outdoor Lawns,Garden and Commercial workspaces!!</h4>
-        {/* <h6 className={classes.des}>Sturdy and widespread horizontal planters precisely made to give you more area for your plants </h6> */}
-        <img className={classes.mainimg3} src ={newz2} alt ="rectangular fiberglass"></img>
-        <img className={classes.mainimg2} src ={fsh} alt ="rectangular fiberglass"></img>
-        </div>
-       
-   </div>
-   <div ref={firstItemRef}>
-   <Product value={3}/>
-   </div>
-   </div>
+      <div className={classes.MainDIV}>
+      <Navigationbar/>
+     
+        <div className ={classes.header}>
+          <div className={classes.contents}>
+          <h1 className={classes.title}>The Vertical Series</h1>
+          <h4 className={classes.desc}>  Our Plush and exquisite tall Vertical planters. Vertical planters minimal space requirement makes it ideal for Small Apartments and offices. Eyecatching and simplistic designs to make them stand out.</h4>
+          </div>
+          <div className={classes.imgcontent}>
+          <img className={classes.mainimg} src= {rect} alt ="Rectangle"></img>
+          </div>
+          </div>
+         <div className={classes.twodiv}>
+          <div className={classes.disdiv}>
+           <img className={classes.mainimg3} src ={newz2} alt ="rectangular fiberglass"></img>
+          <img className={classes.mainimg3} src ={fsh} alt ="rectangular fiberglass"></img>
+          </div>
+          <div className={classes.browse}>
+          <h3 className={classes.br}> BROWSE PRODUCTS</h3>
+          <button className={classes.btnfa} onClick={() => firstItemRef.current.scrollIntoView()}><FaArrowCircleDown style={{fontSize: 80, fontWeight: 200,}} /></button> 
+          </div>
+          </div>
+           
+         
+  
+     <div ref={firstItemRef} className={classes.prd}></div>
+     
+     <h1 className={classes.prdtitle} >PRODUCTS</h1>
+     <hr className={classes.line}></hr>
+     <Product value={3}/>
+     </div>
     );
 }
 

@@ -4,7 +4,7 @@ import "./Navigationbar.css";
 // import OutsideClickHandler from "react-outside-click-handler";
 import Profile from "./pages/profile/Profile"
 // import onClickOutside from "react-onclickoutside";
-import Logoimage from "./images/pfi.jpg";
+import Logoimage from "./images/pfi2.png";
 import Rect from "./images/idk3.png";
 import Bowl from "./images/idk4.png";
 import Vert from "./images/idk5.png";
@@ -62,7 +62,7 @@ const Navigationbar = () => {
         {/* Logo name */}
         <div className="logo">
           <img className="logo-img" src={Logoimage} alt="Logo"></img>
-          <h1>Purva Fiber Industry</h1>
+          <h1 className="logo-title">Purva Fiber Industry</h1>
         </div>
 
         {/* Menu links that is Navigation */}

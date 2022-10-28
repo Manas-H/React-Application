@@ -8,9 +8,10 @@ const Products = require('../models/Products');
    let productdata = product;
    res.json(productdata);   
 });
-router.get("/:id", async (req, res) => {
+router.get("/:productid", async (req, res) => {
     try {
-      const product = await Products.findById(req.params.id);
+       const product = await Products.find({productid: req.params.productid});
+        
       res.status(200).json(product);
     } catch (err) {
       res.status(500).json(err);

@@ -3,38 +3,47 @@ import Navigationbar from "../Navigationbar";
 import classes from "../styles/Rectangle.module.css";
 import rou from "../images/curv2.png";
 // import newz from "../images/newz.png";
-import newz2 from "../images/newz2.jpg";
-import fsh from "../images/fsh.jpg";
+import newz2 from "../images/roup1.jpg";
+import fsh from "../images/roup2.jpg";
 import {useRef} from 'react';
+import Product from "./AllProducts";
 import {
  FaArrowCircleDown,
 } from "react-icons/fa";
 const Round= () =>{
     const firstItemRef = useRef(null);
     return (
-   <div>
-    <Navigationbar/>
-    <div className="main-body2">
-      <div className ={classes.header}>
-        <h1 className={classes.title}>THE <br/>Round Series</h1>
-        <div className={classes.Imagediv}>
-        <img className={classes.mainimage} src= {rou} alt ="Rectangle"></img>
-        <h3 className={classes.br1}> BROWSE PRODUCTS</h3>
-        <button className={classes.btnfa1} onClick={() => firstItemRef.current.scrollIntoView()}><FaArrowCircleDown style={{fontSize: 80, fontWeight: 200,}} /></button>
-        {/* <img className={classes.mainimg3} src ={newz} alt ="rectangular fiberglass"></img> */}
-        </div>
-        {/* <img className={classes.mainimg} src={(Name.Image1)} alt = "nothing"></img> */}
-        </div>
-        <div className={classes.ent}>
-        <h4 className={classes.desc}> Our Premium Curved planters ideal for your Home, Office and Lawn decorations!!</h4>
-        {/* <h6 className={classes.des}>Sturdy and widespread horizontal planters precisely made to give you more area for your plants </h6> */}
-        <img className={classes.mainimg3} src ={newz2} alt ="rectangular fiberglass"></img>
-        <img className={classes.mainimg2} src ={fsh} alt ="rectangular fiberglass"></img>
-        </div>
-       
-   </div>
-   <div ref={firstItemRef}></div>
-   </div>
+      <div className={classes.MainDIV}>
+      <Navigationbar/>
+     
+        <div className ={classes.header}>
+          <div className={classes.contents}>
+          <h1 className={classes.title}>The Round Series</h1>
+          <h4 className={classes.desc}> Round Planters will grace any space with its timeless class and ample elegance. Our round planters are favored by gardeners, home decorators, designers and landscapers for years.</h4>
+          </div>
+          <div className={classes.imgcontent}>
+          <img className={classes.mainimg} src= {rou} alt ="Rectangle"></img>
+          </div>
+          </div>
+         <div className={classes.twodiv}>
+          <div className={classes.disdiv}>
+           <img className={classes.mainimg3} src ={newz2} alt ="rectangular fiberglass"></img>
+          <img className={classes.mainimg3} src ={fsh} alt ="rectangular fiberglass"></img>
+          </div>
+          <div className={classes.browse}>
+          <h3 className={classes.br}> BROWSE PRODUCTS</h3>
+          <button className={classes.btnfa} onClick={() => firstItemRef.current.scrollIntoView()}><FaArrowCircleDown style={{fontSize: 80, fontWeight: 200,}} /></button> 
+          </div>
+          </div>
+           
+         
+  
+     <div ref={firstItemRef} className={classes.prd}></div>
+     
+     <h1 className={classes.prdtitle} >PRODUCTS</h1>
+     <hr className={classes.line}></hr>
+     <Product value={2}/>
+     </div>
     );
 }
 

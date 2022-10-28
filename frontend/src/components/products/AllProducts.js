@@ -1,28 +1,28 @@
 import React from "react";
 import { useEffect,useState } from "react";
+import { Link } from "react-router-dom";
 import Card from "./Card";
 import classes from "./product.module.css";
 
   
   function Product(props) {
-  
     const [isLoading, setIsLoading] = useState(true);
-    const [isHovering, setIsHovering]= useState(false);
-    const [delayHandler, setDelayHandler] = useState(null);
+    // const [isHovering, setIsHovering]= useState(false);
+    // const [delayHandler, setDelayHandler] = useState(null);
 
-    const handleMouseOver = (event) => {
-      setDelayHandler(setTimeout(() => {
+    // const handleMouseOver = (event) => {
+    //   setDelayHandler(setTimeout(() => {
        
-
-      setIsHovering(true);
-    }, 500))
+    
+    //   setIsHovering(true);
+    // }, 500))
       
-    };
+    // };
   
-    const handleMouseOut = () => {
-      setIsHovering(false);
-      clearTimeout(delayHandler)
-    };
+    // const handleMouseOut = () => {
+    //   setIsHovering(false);
+    //   clearTimeout(delayHandler)
+    // };
     // const handleClick = () => { 
     //   setonMouse(current)
     // }
@@ -91,21 +91,19 @@ import classes from "./product.module.css";
      ))} */}
      
       {Name.filter(e => e.seriesid === props.value).map((product,index) =>(
-        <Card>
-          <button  className={classes.but}onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-          {isHovering===false && (
-            <img className ={classes.img}key={index.id} src={(product.images[[0]]) } alt="beer images"></img>
-        )}
-        {isHovering===true && (
-            <img className ={classes.img}key={index.id} src={(product.images[[1]]) } alt="beer images"></img>
-        )}
+        <Card key={index.id} className={classes.Cardd}>  
+        <Link to={`${product.productid}`} style={{textDecoration : 0}}>
+            <button key={product.id} className={classes.but}>
+            <img className ={classes.img} src={(product.images[[0]]) } alt="beer images"></img>
+            <div className={classes.diver}>
+        <h1 className={classes.title} >{product.name}</h1>
+        </div>
         </button>
-        <h1 className={classes.title} key={index.id}>{product.name}</h1>
+        </Link>
       </Card>
        ))}
 </div>
 );
 };
-
 
 export default Product;

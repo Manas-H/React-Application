@@ -5,6 +5,8 @@ const app = express();
 const cors = require("cors");
 const connection = require("./db11");
 const userRoutes = require("./routes/users");
+const cartRoutes = require("./routes/cart");
+const orderRoutes = require("./routes/order");
 const authRoutes = require("./routes/auth");
 const cartRoutes = require("./routes/cart");
 const orderRoutes = require("./routes/order");
@@ -25,8 +27,11 @@ app.use("/api/auth", authRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/order", orderRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/cart", cartRoutes);
+app.use("/api/order", orderRoutes);
 app.use("/api/Series", Serie_Route);
 app.use("/api/Product", Product_Route);
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, console.log(`Listening on port ${port}...`));

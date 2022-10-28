@@ -1,35 +1,79 @@
 
-
-.header {
-    width: 100%;
-    height: 30vh;
-    background-color:#04c2b7;
-    ;
-    display: flex;
-    
-}
-
-.title {
-    height: auto;
-    width: 80%;
-    font-size: 50px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-style: Oxygen;
-    color:#f1f1f1;
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   margin-left: 50px;
-   font-weight: 800;
-   text-shadow:  4px 4px 4px #111;
-   letter-spacing: 5px;
+.MainDIV{
+  z-index: -1;
+    overflow: visible;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
    
     
+}
+.header {
+   background-color: #8ab5ac;
+   height: 34vh;
+   width: 100%;
+   padding-left: 4%;
+   z-index: -1;
+   display: flex;
+ 
+
+  
+}
+.contents{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.imgcontent{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  padding-left: 15%;
+
+}
+.title {
+    color: #fff;
+   padding-top: 5%;
+   padding-left: 2%;
+   text-align: left;
+   font-size: 3rem;
+  
+  width: 100%;
+  
+  
+    
+}
+.desc{
+  color: #fff;
+  padding-top: 1%;
+  padding-left: 2%;
+  width: 107%;
+  font-size: 1.2rem;
+  font-weight: 350;
+ flex-direction: row;
+ overflow: visible;
+ text-align:justify;
+  word-spacing: -2px;
+
+
 }
 
 .title:hover {
     color:#fff;
     animation: moveIt 2s linear 1;
+    cursor:default;
+}
+
+.Imagediv{
+  width:100%;
+height: 100%;
+  background-color: grey;
+ 
+  
 }
 
 @keyframes moveIt {
@@ -37,13 +81,35 @@
     to {background-position:right;} */
 
     0%   {transform:scale(1)}
-    50%  {transform:scale(1.05)}
+    50%  {transform:scale(1.01)}
     100%   {transform:scale(1)}
   }
 .mainimg{
     width:80%;
-    height:200%;
-    margin-right: 50px;
+    height:160%;
+  float: right;
+  padding-top: 7%;
+  
+   
+}
+.disdiv{
+  width: 60%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+
+}
+.twodiv{
+  width: 100%;
+  display: flex;
+}
+.browse{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 28vh;
 }
 .mainimage{
   width:80%;
@@ -85,25 +151,11 @@
     height:70vh;
   }
 
-  .desc{
-    text-align:left;
-    display: flex;
-    flex-direction: column;
-    font-size: 30px;
-    font-weight: 700;
-    text-shadow: 1px 1px 1px #111;
-    width: 100%;
-    overflow: visible;
-    font-style: italic;
-    text-transform:capitalize;
-     padding: 10% 5% 5% 5%;
-     letter-spacing: 1px;
-     word-spacing: 1px;
-  }
+  
 
   .des{
     font-weight: 600;
-    font-size: 24px;
+    font-size: 22px;
     color:#1f1f1f;
     text-align: left;
     padding: 2% 5%;
@@ -116,20 +168,23 @@
   }
 
   .mainimg3{
-    width: 33.33%;
-    height:60%;
-    border: 2px solid #fff;
+    display: flex;
+    width: 26vw;
+    height: 50vh;
+    
+    
   }
 
   .br{
-    display: flex;
-    font-size: 30px;
-    text-align: center;
-    align-items: center;
-    padding-top: 10%;
+   
     justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    
+   
+    
     font-weight: 700;
-    text-shadow: 1px 1px 1px #111;
+    
     letter-spacing: 2px;
 
   }
@@ -148,15 +203,17 @@
   }
 
   .btnfa{
-    display: flex;
-    margin: 0;
-    border: none;
-    color: #1f1f1f;
+    
     justify-content: center;
-    align-content: center;
-    width: 100%;
-    padding-top: 5%;
-    z-index: -1;
+    align-items: center;
+    font-size: 30px;
+    color: #111;
+    padding-top: 4vh;
+   
+    
+    font-weight: 700;
+    
+    letter-spacing: 2px;
   }
   .btnfa1{
     display: inline-flex;
@@ -169,8 +226,34 @@
   }
 
   .btnfa:hover{
-    color: orange;
+    color: #b8a17e;
   }
   .btnfa1:hover{
     color: orange;
+  }
+
+  .prdtitle{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 3rem;
+    color: #b8a17e;
+    margin: 2% 0%;
+    font-weight: 700;
+    letter-spacing: 3px;
+  }
+
+  .prd{
+    display: flex;
+    padding-top: 8%;
+  }
+
+  .line{
+    width: 76%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #b8a17e;
+    border: 0.15rem solid #b8a17e;
+  
   }

@@ -2,13 +2,9 @@ import React from "react";
 import "../styles/home.css";
 import Navigationbar from "../Navigationbar";
 import Autop from "./Autoplay";
-import Choose from "./chooseus";
-import Products from "../products/Products"
-// import Categories from "../products/Categories"
-import Footer from "./Footer"
-
-
-
+// import Choose from "./chooseus";
+// import Products from "../products/Products"
+import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -17,6 +13,7 @@ const Home = () => {
       <div className="main-body">
         <Autop />
       </div>
+    
       <Choose />
       {/* <Categories /> */}
       <Products className="products-temp" />
