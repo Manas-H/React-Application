@@ -8,18 +8,26 @@ import Footer from "./Footer";
 
 const Home = () => {
   return (
-    <div>
-      <Navigationbar />
-      <div className="main-body">
-        <Autop />
-      </div>
-    
-      <Choose />
-      {/* <Categories /> */}
-      <Products className="products-temp" />
-      <Footer />
+    <div>   
+    <Navigationbar />
+    <div className="main-body">
+      <Autop />
     </div>
-    
+    <Choose />
+      
+      {/* <Products /> */}
+      <div className="products">
+         <div className="product_header"><h1> Demo Products </h1> </div>
+      
+      <div className="products_cards">
+      <div className="p1"><Products /></div>
+      <div className="p1"><Products /></div>
+      <Products />
+      </div>
+      </div>
+
+
+    </div>
   );
 };
 
