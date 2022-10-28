@@ -67,7 +67,7 @@ const Profile = () => {
           <ProfileTitle>Account</ProfileTitle>
           <ProfileDetailsSection>
 
-           <Link to="" className="profiles-compo-link">
+           <Link to="/profile" className="profiles-compo-link">
             <ProfileItem>
               <Icon>
                 <CgProfile />
