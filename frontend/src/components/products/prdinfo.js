@@ -8,8 +8,6 @@ import 'react-medium-image-zoom/dist/styles.css';
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 
-
-
 const Prd =(props)=>{
    const {id}= useParams();
    console.log(id);

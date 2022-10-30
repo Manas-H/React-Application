@@ -1,6 +1,5 @@
 // const Cart = require("../models/Cart");
 
-
 // router.get("/cart/:id", async (req,res) => {
 //   const userId = req.params.id;
 //   try{
@@ -57,7 +56,7 @@
 //               bill: quantity*price
 //           });
 //           return res.status(201).send(newCart);
-//       }       
+//       }
 //   }
 //   catch (err) {
 //       console.log(err);
@@ -95,9 +94,6 @@ const {
 
 const router = require("express").Router();
 
-
-
-
 // router.post("/addtocart", async (req, res) => {
 // const cart = new Cart ({
 //   userId : req.userId._id,
@@ -112,7 +108,61 @@ const router = require("express").Router();
 // })
 // });
 
-// UPDATE 
+router.post("/addtocart", verifyToken, (req, res) => {
+  Cart.findOne({ user: req.user._id }).exec((error, cart) => {
+    if (error) return res.status(400).json({ err });
+    if (cart) {
+      const product = req.body.cartItems.product;
+      let condition, update;
+      // if cart alrady exists
+      const item = cart.cartItems.find((c) => c.product == product);
+      if (item) {
+        condition = {
+          user: req.user._id,
+          "cartItems.product": product,
+        };
+        update = {
+          $set: {
+            "cartItems.$": {
+              ...req.body.cartItems,
+              quantity: item.quantity + req.body.cartItems.quantity,
+            },
+          },
+        };
+      } else {
+        condition = { user: req.user._id };
+        update = {
+          $push: {
+            cartItems: req.body.cartItems,
+          },
+        };
+      }
+      Cart.findOneAndUpdate(
+        condition,
+        update
+      ).exec((error, _cart) => {
+        if (error) return res.status(400).json({ error });
+        if (_cart) {
+          return res.status(201).json({ cart: _cart });
+        }
+      });
+    } else {
+      const cart = new Cart({
+        user: req.user._id,
+        cartItems: [req.body.cartItems],
+      });
+
+      cart.save((err, cart) => {
+        if (err) return res.status(400).json({ err });
+        if (cart) {
+          return res.status(201).json({ cart });
+        }
+      });
+    }
+  });
+});
+
+// UPDATE
 router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
   try {
     const updatedCart = await Cart.findByIdAndUpdate(
@@ -139,7 +189,7 @@ router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
 });
 
 // GET USER CART
-router.get("/find/:userId", async (req, res) => {
+router.get("/find/:user", async (req, res) => {
   try {
     const cart = await Cart.findOne({ userId: req.params.userId });
     res.status(200).json(cart);

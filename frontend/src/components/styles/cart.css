@@ -1,17 +1,23 @@
 .cart-container{
-    margin: 40px 0;
+    position: absolute;
+    top: 68px;
+    right: 3px;
     background:black;
+    overflow-y:scroll ;
+    color: white;
     
 }
 .wrapper{
+    display: contents;
     padding:20px;
     width:40%;
     position:relative;
     float:right;
-    min-height: auto;
+    height: 100vh;
     background:black;
     color:white;
 }
+
 /* title */
 .top h3{
     text-align:center;

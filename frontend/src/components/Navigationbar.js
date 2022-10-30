@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navigationbar.css";
 // import OutsideClickHandler from "react-outside-click-handler";
-import Profile from "./pages/profile/Profile"
+import Profile from "./pages/profile/Profile";
 // import onClickOutside from "react-onclickoutside";
 import Logoimage from "./images/pfi2.png";
 import Rect from "./images/idk3.png";
@@ -20,6 +20,7 @@ import {
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Cart from "./products/Cart";
 
 // import Cart from "./products/Cart";
 
@@ -29,12 +30,12 @@ const Navigationbar = () => {
   const [showMediaIcon, setShowMediaIcon] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [showProducts, setShowProducts] = useState(false);
-  // const [showCart, setShowCart] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   // const [showModal, setShowModal] = useState(false);
 
   const quantity = useSelector((state) => state.cart.quantity);
-  console.log(quantity);
+
 
   const handleClick = () => {
     // toggle state
@@ -54,7 +55,6 @@ const Navigationbar = () => {
   //   setShowModal(true);
   //   console.log("modal is open");
   // };
-
 
   return (
     <div className="navigation">
@@ -103,11 +103,12 @@ const Navigationbar = () => {
             </li> */}
 
             {auth ? (
-              <li title="Cart" className="cart">
-                <NavLink to="/cart" className="link">
+              <div className="li">
+                <li title="Cart" className="cart">
                   <span>Add to Cart</span>{" "}
                   <div>
                     <FaCartArrowDown
+                      onClick={() => setShowCart(!showCart)}
                       onMouseOver={({ target }) =>
                         (target.style.color = "orange")
                       }
@@ -115,13 +116,15 @@ const Navigationbar = () => {
                         (target.style.color = "white")
                       }
                       size="20px "
+                      color="white"
                       // onClick={handleOpen}
                     />
-                    <sup className="badge">{quantity}</sup>
+                    <sup className="badge">{quantity} </sup>
                   </div>
                   {/* <Cart onClose={handleClose} showCart={showCart} /> */}
-                </NavLink>
-              </li>
+                </li>
+                {showCart && <Cart />}
+              </div>
             ) : (
               <li title="Cart" className="cart">
                 <NavLink to="/login" className="link">
@@ -154,37 +157,34 @@ const Navigationbar = () => {
                       setShowButton(false);
                     }}
                   > */}
-                    <span onClick={() => setShowButton(true)}> Account </span>{" "}
-                    <FaUser
-                      title=" profile"
-                      onClick={() => setShowButton(!showButton)}
-                      onMouseOver={({ target }) =>
-                        (target.style.color = "orange")
-                      }
-                      onMouseOut={({ target }) =>
-                        (target.style.color = "white")
-                      }
-                    />
+                  <span onClick={() => setShowButton(true)}> Account </span>{" "}
+                  <FaUser
+                    title=" profile"
+                    onClick={() => setShowButton(!showButton)}
+                    onMouseOver={({ target }) =>
+                      (target.style.color = "orange")
+                    }
+                    onMouseOut={({ target }) => (target.style.color = "white")}
+                  />
                   {/* </OutsideClickHandler> */}
                 </li>
-                {showButton && (
-                 <Profile />
-                )}
+                {showButton && <Profile />}
               </div>
             ) : (
               <div className="li">
                 <li className="account">
-                    <span onClick={() => setShowButton(!showButton)}> Account </span>{" "}
-                    <FaUser
-                      title=" Register or Login"
-                      onClick={() => setShowButton(!showButton)}
-                      onMouseOver={({ target }) =>
-                        (target.style.color = "orange")
-                      }
-                      onMouseOut={({ target }) =>
-                        (target.style.color = "white")
-                      }
-                    />
+                  <span onClick={() => setShowButton(!showButton)}>
+                    {" "}
+                    Account{" "}
+                  </span>{" "}
+                  <FaUser
+                    title=" Register or Login"
+                    onClick={() => setShowButton(!showButton)}
+                    onMouseOver={({ target }) =>
+                      (target.style.color = "orange")
+                    }
+                    onMouseOut={({ target }) => (target.style.color = "white")}
+                  />
                 </li>
                 {showButton && (
                   <div className="account-button">

@@ -1,3 +1,10 @@
+.c-container{
+    background-color: red;
+}
+.c-box-c{
+    border: 2px solid black;
+}
+/* 
 .chdiv{
 
     height: 620px;
@@ -72,9 +79,10 @@
 
 }
 
+
 @keyframes moveIt {
-    /* from  {background-position: left;}
-    to {background-position:right;} */
+      to {background-position:right;} */  /* from  {background-position: left;}
+
 
     0%   {background-position: left;}
     25%  {background-position: center;}
@@ -82,3 +90,4 @@
     75%   {background-position: center;}
     100%   {background-position: left;}
   }
+ */

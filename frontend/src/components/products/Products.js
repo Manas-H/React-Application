@@ -4,7 +4,7 @@ import "./product.css";
 import { useLocation } from "react-router-dom";
 import { addProduct } from "../redux/cartReducer";
 import { useDispatch } from "react-redux";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 const Products = ({ product }) => {
   const location = useLocation();
@@ -14,6 +14,7 @@ const Products = ({ product }) => {
   // const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
   const dispatch = useDispatch();
+  // const history = useNavigate();
 
   useEffect(() => {
     // setIsLoading(true)
@@ -21,8 +22,8 @@ const Products = ({ product }) => {
       try {
         const res = await publicRequest.get(`/products/${id}` + id);
         setProduct(res.data);
-      } catch(err){
-        setError(err)
+      } catch (err) {
+        setError(err);
       }
       // setIsLoading(false);
     };
@@ -38,8 +39,8 @@ const Products = ({ product }) => {
   };
 
   const handleClick = (product) => {
-    
     dispatch(addProduct(product));
+    // history('/cart')
   };
 
   // if (isLoading) {
@@ -51,29 +52,32 @@ const Products = ({ product }) => {
   }
   return (
     <div className="products-temp">
-    {
-       products.map((product) => (
-    <div className="card" key={product.id}>
-      <img src={product.img} alt="Products" />
-      <h1>{product.title}</h1>
-      {/* <p class="price">$19.99</p> */}
-      <p>{product.desc}</p>
-      <div className="amount_sec">
-        {/* <p onClick={() => handleQuantity("dec")}> - </p> */}
-        <AiOutlineMinus onClick={() => handleQuantity("dec")} />
+      {products.map((product) => (
+        <div className="card" key={product._id}>
+          <img src={product.img} alt="Products" />
+          <h1>{product.title}</h1>
+          {/* <p class="price">$19.99</p> */}
+          <p>{product.desc}</p>
+          <div className="amount_sec">
+            <p onClick={() => handleQuantity("dec")}>
+              {" "}
+              <AiOutlineMinus />
+            </p>
 
-        <p className="amount">{quantity}</p>
-        {/* <p onClick={() => handleQuantity("inc")}> + </p> */}
-        <AiOutlinePlus onClick={() => handleQuantity("inc")} />
-      </div>
-      <p>
-        <button className="info_button" onClick={() => handleClick(product)}>
-          Add to Cart
-        </button>
-      </p>
-    </div>
-     ))
-    } 
+            <p className="amount">{quantity}</p>
+            {/* <p onClick={() => handleQuantity("inc")}> + </p> */}
+            <AiOutlinePlus onClick={() => handleQuantity("inc")} />
+          </div>
+          <p>
+            <button
+              className="info_button"
+              onClick={() => handleClick(product)}
+            >
+              Add to Cart
+            </button>
+          </p>
+        </div>
+      ))}
     </div>
   );
 };

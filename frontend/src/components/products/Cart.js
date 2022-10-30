@@ -1,8 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../styles/cart.css";
 import { AiOutlineDelete, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { removeFromCart, decreaseCart, addProduct} from "../redux/cartReducer";
 
 const TopBottom = styled.div`
   display: block;
@@ -56,32 +59,92 @@ const Button = styled.button`
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
   console.log(cart);
+
+  const handleAddToCart = (product) => {
+    dispatch(addProduct(product));
+  }
+
+  const handleDecreaseCart = (product) => {
+    dispatch(decreaseCart(product));
+  };
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeFromCart(product));
+  };
   return (
     <div className="cart-container">
-      <div className="wrapper">
-        <div className="top">
-          <h3>Cart</h3>
+      <div className="top">
+        <h3>Cart</h3>
+      </div>
+      {cart.products.length === 0 ? (
+        <div className="wrapper">
+          <div className="cart-empty">
+          <p>Your Cart is currently Empty</p>
+          <div className="start-shopping">
+            <Link to="/">
+              <FaArrowLeft />
+              <span>Start Shopping</span>
+            </Link>
+          </div>
         </div>
-        <TopBottom className="info">
-          {cart.products.map((product) => (
+        </div>
+      ) : (
+        <div className="wrapper">
+          <TopBottom className="info">
+            {cart.products &&
+              cart.products.map((product) => (
+                <div className="product">
+                  <div className="product-details" key={product._id}>
+                    <img src={product.img} alt="Products" />
+                    <div className="details">
+                      <p className="product_name">
+                        <span>Product</span> {product.title}{" "}
+                      </p>
+                      <p className="product_id">ID: {product._id}</p>
+                      <div className="price_details">
+                        <div className="product-amount-quan">
+                          <p className="product-quan-title">Quantity:</p>
+                          <AiOutlinePlus onClick={() => handleAddToCart(product)}/>
+                          <p className="product-quantity">
+                            {product.cartQuantity}
+                          </p>
+                          <AiOutlineMinus  onClick={() => handleDecreaseCart(product)}/>
+                        </div>
+                        <div className="product-price">
+                          <p>Price:</p>$ {product.price * product.quantity}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="delete-icon">
+                      <AiOutlineDelete
+                        onClick={() => handleRemoveFromCart(product)}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </TopBottom>
+          <TopBottom className="info">
             <div className="product">
               <div className="product-details">
-                <img src={product.img} alt="Products" />
+                <img
+                  src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png"
+                  alt="Products"
+                />
                 <div className="details">
-                  <p className="product_name">
-                    <span>Product</span> {product.title}{" "}
-                  </p>
-                  <p className="product_id">ID: {product._id}</p>
+                  <p className="product_name">Product</p>
+                  <p className="product_id">ID:</p>
                   <div className="price_details">
                     <div className="product-amount-quan">
                       <p className="product-quan-title">Quantity:</p>
                       <AiOutlinePlus />
-                      <p className="product-quantity">{product.quantity}</p>
+                      <p className="product-quantity"> 122</p>
                       <AiOutlineMinus />
                     </div>
                     <div className="product-price">
-                      <p>Price:</p>$ {product.price * product.quantity}
+                      <p>Price:</p>$ 1222
                     </div>
                   </div>
                 </div>
@@ -90,58 +153,30 @@ const Cart = () => {
                 </div>
               </div>
             </div>
-          ))}
-        </TopBottom>
-        <TopBottom className="info">
-          <div className="product">
-            <div className="product-details">
-              <img
-                src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png"
-                alt="Products"
-              />
-              <div className="details">
-                <p className="product_name">Product</p>
-                <p className="product_id">ID:</p>
-                <div className="price_details">
-                  <div className="product-amount-quan">
-                    <p className="product-quan-title">Quantity:</p>
-                    <AiOutlinePlus />
-                    <p className="product-quantity"> 122</p>
-                    <AiOutlineMinus />
-                  </div>
-                  <div className="product-price">
-                    <p>Price:</p>$ 1222
-                  </div>
-                </div>
-              </div>
-              <div className="delete-icon">
-                <AiOutlineDelete />
-              </div>
-            </div>
-          </div>
-        </TopBottom>
+          </TopBottom>
 
-        <Summary>
-          <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-          <SummaryItem>
-            <SummaryItemText>Subtotal</SummaryItemText>
-            <SummaryItemPrice>$ 80</SummaryItemPrice>
-          </SummaryItem>
-          <SummaryItem>
-            <SummaryItemText>Estimated Shipping</SummaryItemText>
-            <SummaryItemPrice>$ 5.90</SummaryItemPrice>
-          </SummaryItem>
-          <SummaryItem>
-            <SummaryItemText>Shipping Discount</SummaryItemText>
-            <SummaryItemPrice>$ -5.90</SummaryItemPrice>
-          </SummaryItem>
-          <SummaryItem type="total">
-            <SummaryItemText>Total</SummaryItemText>
-            <SummaryItemPrice>$ 80</SummaryItemPrice>
-          </SummaryItem>
-          <Button>CHECKOUT NOW</Button>
-        </Summary>
-      </div>
+          <Summary>
+            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+            <SummaryItem>
+              <SummaryItemText>Subtotal</SummaryItemText>
+              <SummaryItemPrice>$ 80</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>Estimated Shipping</SummaryItemText>
+              <SummaryItemPrice>$ 5.90</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>Shipping Discount</SummaryItemText>
+              <SummaryItemPrice>$ -5.90</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem type="total">
+              <SummaryItemText>Total</SummaryItemText>
+              <SummaryItemPrice>$ 80</SummaryItemPrice>
+            </SummaryItem>
+            <Button>CHECKOUT NOW</Button>
+          </Summary>
+        </div>
+      )}
     </div>
   );
 };

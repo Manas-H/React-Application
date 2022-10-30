@@ -4,9 +4,7 @@ const app = express();
 
 const cors = require("cors");
 const connection = require("./db11");
-const userRoutes = require("./routes/users");
-const cartRoutes = require("./routes/cart");
-const orderRoutes = require("./routes/order");
+const userRoutes = require("./routes/users")
 const authRoutes = require("./routes/auth");
 const cartRoutes = require("./routes/cart");
 const orderRoutes = require("./routes/order");
@@ -24,8 +22,6 @@ app.use(cors());
 // routes
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
-app.use("/api/cart", cartRoutes);
-app.use("/api/order", orderRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/order", orderRoutes);

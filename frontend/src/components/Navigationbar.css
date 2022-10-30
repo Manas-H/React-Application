@@ -250,6 +250,10 @@
   }
   .cart{
     display: flex;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 300;
+    padding-left: 50px;
   }
 .badge{
     padding: 0 3px;
