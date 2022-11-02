@@ -2,18 +2,45 @@
     position: absolute;
     top: 68px;
     right: 3px;
+    height: 100vh;
+    width:40%;
     background:black;
     overflow-y:scroll ;
     color: white;
-    
+}
+.cart-empty p{
+    text-align: center;
+    padding-top: 127px;
+    font-size: 32px;
+    font-weight: 100;
+}
+.start-shopping{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 106px;
+}
+.start-shopping .shop{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    font-weight: 200;
+  border: .1px solid white;  
+  padding: 10px 17px;
+}
+.start-shopping .shop:hover{
+    background-color: bisque;
+}
+.start-shopping .shop span{
+    padding-left: 10px;
 }
 .wrapper{
     display: contents;
     padding:20px;
-    width:40%;
+    
     position:relative;
     float:right;
-    height: 100vh;
+    
     background:black;
     color:white;
 }
@@ -21,6 +48,7 @@
 /* title */
 .top h3{
     text-align:center;
+    padding-top: 20px;
 }
 
 /* product-container */

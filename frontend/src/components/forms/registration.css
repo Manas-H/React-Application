@@ -4,7 +4,8 @@
   height: 100vh;
   justify-content: center; /*center vertically */
   align-items: center; /* center horizontally */
-  background: linear-gradient(135deg, blue, purple);
+  /* background: linear-gradient(135deg, blue, purple); */
+  background: linear-gradient(0deg, rgba(138,181,172,1) 26%, rgba(207,200,185,1) 89%);
   /* background:#000; */
   padding: 10px;
 }
@@ -25,6 +26,7 @@
 .container {
     position: relative;
     max-width: 400px;
+    margin-top: 100px;
     height: fit-content;
     background: #fff;
     box-shadow: rgba(235, 23, 23, 0.2) 0px 8px 24px;
@@ -41,10 +43,10 @@
     padding: 0 0 2px 0;
     box-shadow:  0 0 0 0 black;
     width:100%; */
-    width:320px;
+    width:300px;
     margin: 15px auto;
     position: relative;
-    box-shadow:  0 0 20px 9px #ff61241f;
+    box-shadow:  0 0 20px 9px #2e0d001f;
     border-radius: 30px;
     display:flex;
     justify-content: space-around;
@@ -61,6 +63,17 @@
     color:#000;
   }
 
+  .con{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .con .pass .input__box .details{
+    width: 140px;
+  }
+  .con .pass input{
+    width: 180px;
+  }
 /*   
   .container .title::before {
     content: "";
@@ -104,7 +117,9 @@ form .user__details .input__box {
   }
   .register:hover , .login:hover{
   /* background: linear-gradient(to right, #ff105f, #ffad06); */
-  background: linear-gradient(135deg, blue, purple);
+  /* background: linear-gradient(135deg, blue, purple); */
+  background: linear-gradient(0deg, rgba(138,181,172,1) 26%, rgba(207,200,185,1) );
+  /* background: linear-gradient(135deg,  rgba(0, 128, 128, 0.548), blue); */
   border-radius: 30px;
   width:200px;
   text-align:center;
@@ -134,12 +149,14 @@ form .user__details .input__box {
     font-size: 18px;
     font-weight: 500;
     border-radius: 5px;
-    background: linear-gradient(135deg, blue, purple);
+    /* background: linear-gradient(135deg, blue, purple); */
+    background: linear-gradient(0deg, rgb(68, 182, 157) 26%, rgba(207,200,185,1) 89%);
     transition: all 0.3s ease;
   }
   
   .button button:hover {
-    background: linear-gradient(135deg,  purple, blue);
+    background: linear-gradient(135deg,  rgba(0, 128, 128, 0.548), blue);
+    /* background: linear-gradient(0deg, rgba(138,181,172,1) 26%, rgba(207,200,185,1) 89%); */
   }
   .right{
     padding-bottom:10px;

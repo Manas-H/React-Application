@@ -5,6 +5,7 @@ import { FcAbout } from "react-icons/fc";
 import { AiOutlineLogout } from "react-icons/ai";
 import { BiSupport } from "react-icons/bi";
 import { Link, useNavigate} from "react-router-dom";
+import { toast } from "react-toastify";
 import "./profile.css"
 const Section = styled.div``;
 const Left = styled.div`
@@ -56,8 +57,10 @@ const Profile = () => {
     const logout = () => {
         localStorage.clear();
         localStorage.removeItem("token");
-        navigate("/");
-        alert('You have been Log Out Successfully');
+        navigate("/login");
+        toast.success("Logout Sucessfully", {
+          position: "top-center",
+        });
       };
 
   return (

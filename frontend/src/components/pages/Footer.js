@@ -43,6 +43,14 @@ const Row = styled.div`
   }
 `;
 
+const FooterContainer = styled.div`
+
+`;
+
+const FooterMain = styled.div`
+display: flex;
+`;
+
 const FooterLink = styled.a`
   color: white;
   margin-bottom: 15px;
@@ -108,10 +116,16 @@ const Footer = () => {
           </Column>
           <Column className="series">
             <Heading>SERIES</Heading>
-            <FooterLink href="#">Rectangle Series</FooterLink>
-            <FooterLink href="#">Round Series</FooterLink>
-            <FooterLink href="#">Vertical Series</FooterLink>
-            <FooterLink href="#">Bowl Series</FooterLink>
+            <FooterMain>
+            <FooterContainer>
+            <FooterLink href="#">Rectangle </FooterLink>
+            <FooterLink href="#">Round </FooterLink>
+            </FooterContainer>
+            <FooterContainer>
+            <FooterLink href="#">Vertical </FooterLink>
+            <FooterLink href="#">Bowl </FooterLink>
+            </FooterContainer>
+            </FooterMain>
           </Column>
 
           <Column>

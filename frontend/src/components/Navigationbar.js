@@ -104,7 +104,7 @@ const Navigationbar = () => {
 
             {auth ? (
               <div className="li">
-                <li title="Cart" className="cart">
+                <li title="Cart" className="cart log-cart">
                   <span>Add to Cart</span>{" "}
                   <div>
                     <FaCartArrowDown
@@ -126,7 +126,8 @@ const Navigationbar = () => {
                 {showCart && <Cart />}
               </div>
             ) : (
-              <li title="Cart" className="cart">
+             <div className="li">
+               <li title="Cart" className="cart">
                 <NavLink to="/login" className="link">
                   <span>Add to Cart</span>{" "}
                   <div>
@@ -145,6 +146,7 @@ const Navigationbar = () => {
                   {/* <Cart onClose={handleClose} showCart={showCart} /> */}
                 </NavLink>
               </li>
+             </div>
             )}
 
             {/* this is for account where when click outside then closes */}

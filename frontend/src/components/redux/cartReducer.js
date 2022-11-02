@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const initialState = {
   products: localStorage.getItem("product")
@@ -19,6 +20,7 @@ const cartSlice = createSlice({
       );
       if (itemIndex >= 0) {
         state.products[itemIndex].cartQuantity += 1;
+        state.quantity += 0;
         toast.info(
           `increased ${state.products[itemIndex].title} product quantity`,
           {
@@ -26,13 +28,16 @@ const cartSlice = createSlice({
           }
         );
       } else {
-        const tempProduct = { ...action.payload, cartQuantity: 1 };
+        const data  = axios.post('http://localhost/api/cart/addtocart')
+        const tempProduct = { ...action.payload, data, cartQuantity: 1 };
         state.products.push(tempProduct);
+        // state.products.axios.post('localhost:5000/api/cart/addtocart')
+        state.quantity += 1;
         toast.success(`${action.payload.title} added to cart`, {
           position: "top-center",
         });
       }
-      state.quantity += 1;
+      
       state.total += action.payload.price * action.payload.quantity;
 
       localStorage.setItem("product", JSON.stringify(state.products));
@@ -46,6 +51,7 @@ const cartSlice = createSlice({
       toast.error(`${action.payload.title} removed from cart`, {
         position: "top-center",
       });
+      state.quantity -= 1;
     },
     decreaseCart(state, action) {
       const itemIndex = state.products.findIndex(

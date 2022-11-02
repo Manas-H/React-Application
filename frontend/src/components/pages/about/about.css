@@ -19,7 +19,7 @@
 
 .abt-main-sec{
     position: relative;
-    background: #1B998B;
+    background:  #8ab5ac;
 }
 
 .abt-bx-content {
@@ -31,6 +31,8 @@
 }
 
 .abt-bx-content .bx{
+    font-size: 27px;
+    font-weight: 100;
     border:2px solid black;
     border-radius: 15px;
     background-color: aliceblue;
@@ -38,12 +40,22 @@
 }
 .abt-bx-content .bx:hover{
     background-color: white;
-
 }
 
 .bx-2, .bx-1, .bx-3, .bx-4{
-    padding: 30px 80px;
     margin-left: 50px;
+}
+.bx-1{
+    padding: 10px 20px;
+}
+.bx-2{
+    padding: 10px 50px;
+}
+.bx-3{
+    padding: 10px 45px;
+}
+.bx-4{
+    padding: 10px 35px;
 }
 .abt-click-contents{
     display: flex;
@@ -71,6 +83,8 @@
     bottom: 50px;
 }
 .form h2{
+    font-size: 30px;
+    font-weight: 100;
     text-align: center;
 }
 .input-feild{
@@ -95,9 +109,10 @@
 }
 .form button{
     color: black;
+    background-color: #8aeed8d0;
     border: 0.1px  solid black;
     border-radius: 7px;
-    background:white;
+    padding: 3px 10px;
     width: 50%;
     margin: 10px 0 0 50px;
 }
@@ -108,7 +123,12 @@
 /* who are we page css */
 .who-are-we{
     text-align: center;
-    width: 50%;
+    width: 70%;
+}
+.who-are-we p{
+    font-size: 22px;
+    font-weight: 200;
+    margin-top: 10vh;
 }
 
 .content {

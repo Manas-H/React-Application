@@ -1,4 +1,10 @@
 
+.home-page-full{
+    position: relative;
+    background: url(../images/comb.png) fixed;
+    background-size: cover;
+    -webkit-background-size:cover;
+}
 /* whole body of img and h1, p, button */
 .body1{
     display: flex;
@@ -13,6 +19,7 @@
 }
 .main-body{
     padding-top: 20px;
+    margin-bottom: 100px;
     height:100vh;    
     /* background-image: linear-gradient(0deg,#90C8AC 0%,#7FB77E 100%);  */
     background-color: #8ab5ac;

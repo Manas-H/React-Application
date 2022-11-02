@@ -9,6 +9,9 @@
 .logo{
     width: 30%;
 }
+.logo-link{
+    text-decoration: none;
+}
 .logotitle{
     margin:0;
     text-align: center;
@@ -253,6 +256,9 @@
     font-size: 18px;
     color: #ffffff;
     font-weight: 300;
+    padding-left: 10px;
+  }
+  .log-cart{
     padding-left: 50px;
   }
 .badge{

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./registration.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import BackHomeNav from "../navbar/BackHomeNav";
 
 const RegisterationModal = () => {
   // const [user, setUser] = useState({
@@ -62,6 +63,7 @@ const RegisterationModal = () => {
   // };
   return (
     <div className="body">
+      <BackHomeNav />
       {/* <div className="heading-nav">
       <FaArrowLeft />
       <h2>Home</h2>
@@ -129,7 +131,8 @@ const RegisterationModal = () => {
             </div>
           </div>
 
-          <div className="user__details">
+          <div className="con">
+          <div className="user__details pass">
             <div className="input__box">
               <span className="details">Password</span>
             </div>
@@ -142,7 +145,7 @@ const RegisterationModal = () => {
               required
             />
           </div>
-          <div className="user__details">
+          <div className="user__details pass">
             <div className="input__box">
               <span className="details">Confirm Password</span>
             </div>
@@ -155,6 +158,8 @@ const RegisterationModal = () => {
               required
             />
           </div>
+          </div>
+
           {error && <div className="">{error}</div>}
           <div className="button">
             <button>Register</button>

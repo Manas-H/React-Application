@@ -47,13 +47,15 @@
 // export default Login
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "./registration.css";
+import BackHomeNav from "../navbar/BackHomeNav";
 
 const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
-
+ const navigate = useNavigate();
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -65,8 +67,13 @@ const Login = () => {
       const url = "http://localhost:5000/api/auth";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", JSON.stringify(res.data));
-      window.location = "/";
-      alert("You are Logged In")
+      
+      navigate('/')
+      toast.success(
+        "Logged In SucessFully",
+        {
+          position: "top-center",
+        })
     } catch (error) {
       if (
         error.response &&
@@ -80,6 +87,7 @@ const Login = () => {
 
   return (
     <div className="body">
+      <BackHomeNav />
       <div className="container">
         <div className="title">
           <div className="register link_path">

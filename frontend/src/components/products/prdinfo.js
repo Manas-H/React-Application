@@ -1,6 +1,8 @@
 import React from "react";
 import {useParams} from "react-router-dom"
 import { useState,useEffect } from "react";
+import { addProduct } from "../redux/cartReducer";
+import { useDispatch } from "react-redux";
 import classes from "./prdinfo.module.css";
 import Navigationbar from "../Navigationbar";
 import Footer from "../pages/Footer";
@@ -16,6 +18,7 @@ const Prd =(props)=>{
    const [defImg, setdefImg] = useState(true);
    const [Image, setImage] = useState("");
    const [count, setCount] = useState(1);
+   const dispatch = useDispatch();
    
   
    async function fetchData() {
@@ -31,6 +34,13 @@ const Prd =(props)=>{
   .catch(err => setErrors(err))
   .then(hasError);
 }
+
+const handleClickCart = (product) => {
+  // const data  = await axios.post('http://localhost/api/cart/addtocart')
+  dispatch(addProduct(product));
+  // history('/cart')
+};
+
 //handleIncrement event handler
 const handleIncrement = () => {
   setCount(prevCount => prevCount + 1);
@@ -127,7 +137,7 @@ useEffect(() =>{
         <h2 className={classes.ct}>{count}</h2>
         <button onClick={handleIncrement} className={classes.bt}>+</button>
       {/* <button onClick={() => setCount(1)} className={classes.bt}>Reset</button> */}
-      <button className={classes.btn}>Add To Cart</button>
+      <button className={classes.btn}  onClick={() => handleClickCart(product)}>Add To Cart</button>
       </div>
         </div>
         </div>

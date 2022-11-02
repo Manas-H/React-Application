@@ -76,14 +76,14 @@ const Cart = () => {
   return (
     <div className="cart-container">
       <div className="top">
-        <h3>Cart</h3>
+        <h3>Shopping Cart</h3>
       </div>
       {cart.products.length === 0 ? (
         <div className="wrapper">
           <div className="cart-empty">
           <p>Your Cart is currently Empty</p>
           <div className="start-shopping">
-            <Link to="/">
+            <Link to="/" className="shop">
               <FaArrowLeft />
               <span>Start Shopping</span>
             </Link>
@@ -97,10 +97,10 @@ const Cart = () => {
               cart.products.map((product) => (
                 <div className="product">
                   <div className="product-details" key={product._id}>
-                    <img src={product.img} alt="Products" />
+                    <img src={product.images} alt="Products" />
                     <div className="details">
                       <p className="product_name">
-                        <span>Product</span> {product.title}{" "}
+                        <span>Product</span> {product.name}{" "}
                       </p>
                       <p className="product_id">ID: {product._id}</p>
                       <div className="price_details">

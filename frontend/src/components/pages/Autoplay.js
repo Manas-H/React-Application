@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay} from 'swiper';
+import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -11,7 +12,13 @@ import '../styles/home.css';
 
 
 
-function createSlide() {
+function CreateSlide() {
+  const navigate = useNavigate();
+  const routeChange = () =>{ 
+    let path = `/about`; 
+    navigate(path);
+  }
+
   return (
     <SwiperSlide className="slideme">
         <div className="body1">
@@ -26,14 +33,19 @@ function createSlide() {
             {" "}
             We are committed to provide top notch quality Products
           </p>
-          <button>Learn More</button>
+          <button onClick={routeChange}>Learn More</button>
         </div>
         </div>
     </SwiperSlide>
     
   );
 }
-function createSlide2() {
+function CreateSlide2() {
+  const navigate = useNavigate();
+  const routeChange = () =>{ 
+    let path = `/allProduct`; 
+    navigate(path);
+  }
     return (
       <SwiperSlide>
         <div className="body1 body2">
@@ -48,7 +60,7 @@ function createSlide2() {
             {" "}
             Make your Home and Office standout with our Fiberglass products
           </p>
-          <button>Explore Fiberglass products</button>
+          <button onClick={routeChange}>Explore Fiberglass products</button>
         </div>
         </div>
         {/* <img className="img" src={images2} alt="" /> */}
@@ -81,8 +93,8 @@ const Autop = () => {
       //   }
       // }}
     >
-      {createSlide() }
-      {createSlide2()}
+      {CreateSlide() }
+      {CreateSlide2()}
      
     </Swiper>
   );

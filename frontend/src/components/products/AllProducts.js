@@ -57,7 +57,7 @@ import classes from "./product.module.css";
        
          async function fetchData() {
               // let arrr =[];
-              const res= await fetch("http://localhost:5000/api/product/");
+              const res= await fetch("http://localhost:5000/api/Product/");
            let data= await res.json();
             // let Name= data;
             //  data = data.filter(e => e.seriesid === {value});

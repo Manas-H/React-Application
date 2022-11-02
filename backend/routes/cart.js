@@ -115,6 +115,8 @@ router.post("/addtocart", verifyToken, (req, res) => {
       const product = req.body.cartItems.product;
       let condition, update;
       // if cart alrady exists
+      let promiseArray = [];
+
       const item = cart.cartItems.find((c) => c.product == product);
       if (item) {
         condition = {
@@ -189,14 +191,26 @@ router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
 });
 
 // GET USER CART
-router.get("/find/:user", async (req, res) => {
-  try {
-    const cart = await Cart.findOne({ userId: req.params.userId });
-    res.status(200).json(cart);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+router.get("/getcartitem", verifyToken, async (req, res) => {
+    Cart.findOne({ user: req.user._id })
+        .populate("cartItems.product", "_id name price productPictures")
+        .exec((error, cart) => {
+          if (error) return res.status(400).json({ error });
+          if (cart) {
+            let cartItems = {};
+            cart.cartItems.forEach((item) => {
+              cartItems[item._id.toString()] = {
+                _id: item._id.toString(),
+                name: item.name,
+                price: item.price,
+                // img: item.productPictures.img,
+                qty: item.quantity,
+              };
+            });
+            res.status(200).json({ cartItems });
+          }
+    });
+  });
 
 // GET ALL
 
@@ -210,3 +224,146 @@ router.get("/", async (req, res) => {
 });
 
 module.exports = router;
+
+
+// const { response } = require("express");
+// const Cart = require("../models/Cart");
+// const {
+//   verifyToken,
+//   verifyTokenAndAuthorization,
+//   verifyTokenAndAdmin,
+// } = require("./verifyToken");
+
+// const router = require("express").Router();
+
+// function runUpdate(condition, updateData) {
+//   return new Promise((resolve, reject) => {
+//     you update code here
+
+//     Cart.findOneAndUpdate(condition, updateData, { upsert: true })
+//       .then((result) => resolve())
+//       .catch((err) => reject(err));
+//   });
+// }
+
+// router.post("/addtocart", verifyToken, (req, res) => {
+//   Cart.findOne({ user: req.user._id }).exec((error, cart) => {
+//     if (error) return res.status(400).json({ err });
+//     if (cart) {
+//       // if cart alrady exists
+//       let promiseArray = [];
+
+//       req.body.cartItems.forEach((cartItem) => {
+//       const product = cartItem.product;
+//       const item = cart.cartItems.find((c) => c.product == product);
+//       let condition, update;
+    
+//       if (item) {
+//         condition = {
+//           user: req.user._id,
+//           "cartItems.product": product,
+//         };
+//         update = {
+//           $set: {
+//             "cartItems.$": cartItem
+//           },
+//         };
+//       } else {
+//         condition = { user: req.user._id };
+//         update = {
+//           $push: {
+//             "cartItems": cartItem,
+//           },
+//         };
+//       }
+//       promiseArray.push(runUpdate(condition, update));
+//       Cart.findOneAndUpdate(
+//         condition,
+//         update
+//       ).exec((error, _cart) => {
+//         if (error) return res.status(400).json({ error });
+//         if (_cart) {
+//           return res.status(201).json({ cart: _cart });
+//         }
+//     });
+//       });
+//       Promise.all(promiseArray)
+//       .then(response => res.status(201).json({ response }))
+//       .catch(error => res.status(400).json({ error }))
+//     } else {
+//       const cart = new Cart({
+//         user: req.user._id,
+//         cartItems: req.body.cartItems,
+//       });
+
+//       cart.save((err, cart) => {
+//         if (err) return res.status(400).json({ err });
+//         if (cart) {
+//           return res.status(201).json({ cart });
+//         }
+//       });
+//     }
+//   });
+// });
+
+// GET USER CART
+// router.get("/getcartitem", verifyToken, async (req, res) => {
+//   Cart.findOne({ user: req.user._id })
+//       .populate("cartItems.product", "_id name price productPictures")
+//       .exec((error, cart) => {
+//         if (error) return res.status(400).json({ error });
+//         if (cart) {
+//           let cartItems = {};
+//           cart.cartItems.forEach((item) => {
+//             cartItems[item._id.toString()] = {
+//               _id: item._id.toString(),
+//               name: item.name,
+//               price: item.price,
+//               img: item.productPictures.img,
+//               qty: item.quantity,
+//             };
+//           });
+//           res.status(200).json({ cartItems });
+//         }
+//   });
+// });
+
+
+// UPDATE
+// router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
+//   try {
+//     const updatedCart = await Cart.findByIdAndUpdate(
+//       req.params.id,
+//       {
+//         $set: req.body,
+//       },
+//       { new: true }
+//     );
+//     res.status(200).json(updatedCart);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+// DELETE
+// router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
+//   try {
+//     await Cart.findByIdAndDelete(req.params.id);
+//     res.status(200).json("Cart has been deleted...");
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+// GET ALL
+
+// router.get("/", async (req, res) => {
+//   try {
+//     const carts = await Cart.find();
+//     res.status(200).json(carts);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+// module.exports = router;

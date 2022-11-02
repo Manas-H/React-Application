@@ -48,7 +48,7 @@ const Products = ({ product }) => {
   // }
 
   if (error || !Array.isArray(products)) {
-    return <p className="error">There was an error loading your data!</p>;
+    return <p className="error">There was an error loading your data...</p>;
   }
   return (
     <div className="products-temp">
