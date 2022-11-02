@@ -1,4 +1,10 @@
+.outer-faq{
+	background: #8ab5ac;
+	height: 100vh;
+}
 .faqs {
+	position: relative;
+	top: 10vh;
 	width: 100%;
 	max-width: 768px;
 	margin: 0 auto;

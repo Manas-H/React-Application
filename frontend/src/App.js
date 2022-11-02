@@ -13,7 +13,7 @@ import Bowl from "./components/products/Bowl";
 import Product from "./components/products/AllProducts";
 import Prd from "./components/products/prdinfo";
 import UserProfile from "./components/pages/profile/UserProfile";
-import FAQ from "./components/pages/profile/faq/FAQ";
+import FAQData from "./components/pages/profile/faq/FAQData";
 // import RegisterationModal from "./components/forms/RegisterationModal";
 // import RegistrationMain from "./components/forms/RegistrationMain";
 // import From from './components/'
@@ -37,7 +37,7 @@ function App() {
         {/* <Route path="/All" exact element={<Product/>} /> */}
         <Route path="/allProducts" exact element={<Product/>} />
         <Route path="/profile" exact element={<UserProfile/>} />
-        <Route path="/faq" exact element={<FAQ/>} />
+        <Route path="/faq" exact element={<FAQData />} />
 			  <Route path="/" element={<Navigate replace to="/login" />} /> 
         <Route path="/Rectangle/:id" exact element={<Prd/>} />
         <Route path="/Vertical/:id" exact element={<Prd/>} />
