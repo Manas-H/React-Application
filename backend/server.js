@@ -11,6 +11,7 @@ const orderRoutes = require("./routes/order");
 const Serie_Route = require("./routes/series");
 const Product_Route = require("./routes/Productpg");
 const productRoutes = require("./routes/product");
+const stripeRoute = require("./routes/stripe");
 
 // database connection
 connection();
@@ -24,9 +25,10 @@ app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
-app.use("/api/order", orderRoutes);
+app.use("/api/orders", orderRoutes);
 app.use("/api/Series", Serie_Route);
 app.use("/api/Product", Product_Route);
+api.use("/api/checkout", stripeRoute);
 
 
 const port = process.env.PORT || 5000;

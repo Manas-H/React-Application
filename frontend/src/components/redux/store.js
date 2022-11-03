@@ -1,11 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cartReducer from "./cartReducer";
+import cartReducer, { getTotals } from "./cartReducer";
 
-export default configureStore({
+const store =  configureStore({
     reducer: {
         cart: cartReducer
     },
+    middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
+store.dispatch(getTotals());
 // import { applyMiddleware } from "redux";
 // import { composeWithDevTools } from 'redux-devtools-extension';
 // import rootReducer from './reducers';
@@ -15,4 +20,4 @@ export default configureStore({
 //     applyMiddleware(thunk)
 // ));
 
-// export default store;
+export default store;

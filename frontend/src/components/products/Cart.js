@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/cart.css";
 import { AiOutlineDelete, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
-import { removeFromCart, decreaseCart, addProduct} from "../redux/cartReducer";
+import { removeFromCart, decreaseCart, addProduct, getTotals} from "../redux/cartReducer";
+import StripeCheckout from 'react-stripe-checkout'; 
+import img from "../images/pfi.png"
+import { userRequest } from '../../requestMethod'
 
 const TopBottom = styled.div`
   display: block;
@@ -20,10 +23,11 @@ const TopBottom = styled.div`
 const Summary = styled.div`
   width: 80%;
   margin-left: 40px;
+  margin-bottom:10vh;
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 20px;
-  height: 50vh;
+  height: 55vh;
 `;
 
 const SummaryTitle = styled.h1`
@@ -50,18 +54,48 @@ const SummaryItemPrice = styled.span``;
 
 const Button = styled.button`
   min-width: 72%;
-  margin: 25px 17%;
-  padding: 10px;
-  background-color: black;
-  color: white;
+  margin: 1px 17%;
+  padding: 4px;
+  background-color: white;
+  color: black;
   font-weight: 600;
 `;
+ const KEY = process.env.REACT_APP_STRIPE;
+ 
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [stripeToken, setStripeToken] = useState(null);
 
-  console.log(cart);
+ const onToken = (token) => {
+  setStripeToken(token);
+};
+console.log(stripeToken);
+  
+
+  // useEffect(() => {
+    
+  // }, [cart, dispatch]);
+
+  useEffect(() => {
+    const makeRequest = async () => {
+      try {
+        const res = await userRequest.post("/checkout/payment", {
+          tokenId: stripeToken.id,
+          amount: 500,
+        });
+        navigate("/success", {
+          stripeData: res.data,
+          products: cart, });
+      } catch {}
+    };
+    stripeToken && makeRequest();
+    dispatch(getTotals());
+  }, [stripeToken, cart.total,cart, dispatch ,navigate]);
+
+  // console.log(cart);
 
   const handleAddToCart = (product) => {
     dispatch(addProduct(product));
@@ -95,8 +129,8 @@ const Cart = () => {
           <TopBottom className="info">
             {cart.products &&
               cart.products.map((product) => (
-                <div className="product">
-                  <div className="product-details" key={product._id}>
+                <div className="product"key={product.id}>
+                  <div className="product-details">
                     <img src={product.images} alt="Products" />
                     <div className="details">
                       <p className="product_name">
@@ -113,7 +147,8 @@ const Cart = () => {
                           <AiOutlineMinus  onClick={() => handleDecreaseCart(product)}/>
                         </div>
                         <div className="product-price">
-                          <p>Price:</p>$ {product.price * product.quantity}
+                          <p>Price: {product.esp}rs </p>
+                          <p>Total: {product.esp * product.cartQuantity}rs</p>
                         </div>
                       </div>
                     </div>
@@ -159,21 +194,32 @@ const Cart = () => {
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
+              <SummaryItemPrice>{cart.total}rs</SummaryItemPrice>
             </SummaryItem>
-            <SummaryItem>
+            {/* <SummaryItem>
               <SummaryItemText>Estimated Shipping</SummaryItemText>
               <SummaryItemPrice>$ 5.90</SummaryItemPrice>
-            </SummaryItem>
+            </SummaryItem> */}
             <SummaryItem>
               <SummaryItemText>Shipping Discount</SummaryItemText>
-              <SummaryItemPrice>$ -5.90</SummaryItemPrice>
+              <SummaryItemPrice>200rs</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
+              <SummaryItemPrice>{cart.total - 200}rs</SummaryItemPrice>
             </SummaryItem>
+            <StripeCheckout
+            name="Purva"
+            image={img}
+            billingAddress
+            shippingAddress
+            description={`your total is ${cart.total - 200}`}
+            amount={cart.total*100}
+            token={onToken}
+            stripeKey={KEY}
+            >
             <Button>CHECKOUT NOW</Button>
+            </StripeCheckout>
           </Summary>
         </div>
       )}

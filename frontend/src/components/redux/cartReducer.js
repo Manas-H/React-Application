@@ -6,6 +6,8 @@ const initialState = {
   products: localStorage.getItem("product")
     ? JSON.parse(localStorage.getItem("product"))
     : [],
+  // quantity: 0,
+  // total: 0,
   quantity: 0,
   total: 0,
 };
@@ -73,6 +75,26 @@ const cartSlice = createSlice({
         });
       }
       localStorage.setItem("product", JSON.stringify(state.products));
+    },
+    getTotals(state, action) {
+      let { Alltotal, Allquantity } = state.products.reduce(
+        (cartTotal, cartItem) => {
+          const { esp, cartQuantity  } = cartItem;
+          const itemTotal = (esp * cartQuantity) - 200;
+
+          cartTotal.Alltotal += itemTotal;
+          cartTotal.Allquantity += cartQuantity;
+
+          return cartTotal;
+        },
+        {
+          Alltotal: 0,
+          Allquantity: 0,
+        }
+      );
+      Alltotal = parseFloat(Alltotal.toFixed(2));
+      state.quantity = Allquantity;
+      state.total = Alltotal;
     },
   },
 });

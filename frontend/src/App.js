@@ -14,6 +14,7 @@ import Product from "./components/products/AllProducts";
 import Prd from "./components/products/prdinfo";
 import UserProfile from "./components/pages/profile/UserProfile";
 import FAQData from "./components/pages/profile/faq/FAQData";
+import Success from "./components/pages/Sucess";
 // import RegisterationModal from "./components/forms/RegisterationModal";
 // import RegistrationMain from "./components/forms/RegistrationMain";
 // import From from './components/'
@@ -34,6 +35,7 @@ function App() {
         <Route path="/Round" exact element={<Round/>} />
         <Route path="/Vertical" exact element={<Vertical/>} />
         <Route path="/Bowl" exact element={<Bowl/>} />
+        <Route path="/success" exact element={<Success/>} />
         {/* <Route path="/All" exact element={<Product/>} /> */}
         <Route path="/allProducts" exact element={<Product/>} />
         <Route path="/profile" exact element={<UserProfile/>} />
