@@ -6,18 +6,21 @@ import { useDispatch } from "react-redux";
 import classes from "./prdinfo.module.css";
 import Navigationbar from "../Navigationbar";
 import Footer from "../pages/Footer";
+import RecommendedProducts from "./RecProduct";
 import 'react-medium-image-zoom/dist/styles.css';
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+// import axios from "axios";
 
 const Prd =(props)=>{
    const {id}= useParams();
-   console.log(id);
+  //  console.log(id);
    const [ProductInfo, setProductInfo] = useState([]);
    const [hasError, setErrors] = useState(false);
    const [defImg, setdefImg] = useState(true);
    const [Image, setImage] = useState("");
    const [count, setCount] = useState(1);
+  //  const [productId, setProductId] = useState("");
    const dispatch = useDispatch();
    
   
@@ -28,7 +31,12 @@ const Prd =(props)=>{
   // let Name= data;
   //  data = data.filter(e => e.seriesid === {value});
   setProductInfo(data);
-  console.log(ProductInfo);
+  // setProductId(data._id);
+  // console.log(data._id);
+  // console.log(ProductInfo);
+  // console.log(ProductInfo && ProductInfo[0]._id);
+
+  
   res
    .json()
   .catch(err => setErrors(err))
@@ -36,8 +44,13 @@ const Prd =(props)=>{
 }
 
 const handleClickCart = (product) => {
-  // const data  = await axios.post('http://localhost/api/cart/addtocart')
   dispatch(addProduct(product));
+//  axios.post('http://localhost:5000/api/cart/addtocart', product)
+//  .then(res => {
+//  }).catch(err => {
+//   console.log(err);
+//   console.log("bitch");
+//  })
   // history('/cart')
 };
 
@@ -143,6 +156,9 @@ useEffect(() =>{
         </div>
        
        ))}
+       {ProductInfo && ProductInfo.length > 0 && <RecommendedProducts productId={ProductInfo[0]._id} />}
+
+
        <Footer/>
         </div>
     );

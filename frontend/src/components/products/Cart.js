@@ -60,9 +60,8 @@ const Button = styled.button`
   color: black;
   font-weight: 600;
 `;
- const KEY = process.env.REACT_APP_STRIPE;
+ const KEY = process.env.REACT_APP_STRIPE
  
-
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -216,7 +215,7 @@ console.log(stripeToken);
             description={`your total is ${cart.total - 200}`}
             amount={cart.total*100}
             token={onToken}
-            stripeKey={KEY}
+            setStripeToken={KEY}
             >
             <Button>CHECKOUT NOW</Button>
             </StripeCheckout>

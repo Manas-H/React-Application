@@ -59,6 +59,7 @@ import classes from "./product.module.css";
               // let arrr =[];
               const res= await fetch("http://localhost:5000/api/Product/");
            let data= await res.json();
+           console.log("Allproductrs", data);
             // let Name= data;
             //  data = data.filter(e => e.seriesid === {value});
             setName(data);

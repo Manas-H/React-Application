@@ -30,11 +30,12 @@ const cartSlice = createSlice({
           }
         );
       } else {
-        const data  = axios.post('http://localhost/api/cart/addtocart')
-        const tempProduct = { ...action.payload, data, cartQuantity: 1 };
+        const tempProduct = { ...action.payload, cartQuantity: 1 };
+        console.log(tempProduct);
         state.products.push(tempProduct);
-        // state.products.axios.post('localhost:5000/api/cart/addtocart')
         state.quantity += 1;
+        const res = axios.post('http://localhost:5000/api/cart/addtocart', tempProduct)
+        console.log(res);
         toast.success(`${action.payload.title} added to cart`, {
           position: "top-center",
         });

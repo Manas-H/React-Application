@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 const cors = require("cors");
-const connection = require("./db11");
+const connectDB = require("./db11").connectDB
 const userRoutes = require("./routes/users")
 const authRoutes = require("./routes/auth");
 const cartRoutes = require("./routes/cart");
@@ -12,9 +12,14 @@ const Serie_Route = require("./routes/series");
 const Product_Route = require("./routes/Productpg");
 const productRoutes = require("./routes/product");
 const stripeRoute = require("./routes/stripe");
+const recommendationsRouter = require('./routes/api');
 
 // database connection
-connection();
+connectDB().then(() => {
+    console.log("Connected to database successfully");
+  }).catch((error) => {
+    console.log(`Error connecting to database: ${error}`);
+  });
 
 // middlewares
 app.use(express.json());
@@ -28,7 +33,8 @@ app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/Series", Serie_Route);
 app.use("/api/Product", Product_Route);
-api.use("/api/checkout", stripeRoute);
+app.use("/api/checkout", stripeRoute);
+app.use('/api', recommendationsRouter);
 
 
 const port = process.env.PORT || 5000;
